@@ -2,10 +2,11 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-def page_global_analytics(df_data):
+def page_global_analytics(df_data, filters):
     """
     Displays the global analytics page.
     """
+    selected_contract, selected_internet, selected_payment = filters
     # Professional header
     st.markdown("""
     <div class="main-header">
@@ -14,28 +15,12 @@ def page_global_analytics(df_data):
     </div>
     """, unsafe_allow_html=True)
 
-    # --- Interactive Filters ---
-    st.sidebar.markdown("---")
-    st.sidebar.markdown("## Global Analytics Filters")
-    
     # Create a filtered dataframe to be used by all charts
     filtered_df = df_data.copy()
-
-    # Filter by Contract Type
-    contract_options = ['All'] + df_data['Contract'].unique().tolist()
-    selected_contract = st.sidebar.selectbox("Filter by Contract Type", contract_options)
     if selected_contract != 'All':
         filtered_df = filtered_df[filtered_df['Contract'] == selected_contract]
-
-    # Filter by Internet Service
-    internet_options = ['All'] + df_data['InternetService'].unique().tolist()
-    selected_internet = st.sidebar.selectbox("Filter by Internet Service", internet_options)
     if selected_internet != 'All':
         filtered_df = filtered_df[filtered_df['InternetService'] == selected_internet]
-        
-    # Filter by Payment Method
-    payment_options = ['All'] + df_data['PaymentMethod'].unique().tolist()
-    selected_payment = st.sidebar.selectbox("Filter by Payment Method", payment_options)
     if selected_payment != 'All':
         filtered_df = filtered_df[filtered_df['PaymentMethod'] == selected_payment]
 
@@ -430,17 +415,6 @@ def page_global_analytics(df_data):
         height=400
     )
 
-    # Professional call-to-action
-    st.markdown("---")
-    col_center = st.columns([1, 2, 1])[1]
-    with col_center:
-        st.markdown("""
-        <div style="text-align: center; padding: 2rem;">
-            <h4 style="color: #0059b3;">Ready to analyze individual customers?</h4>
-            <p>Get detailed predictions and explanations for specific customer churn risk.</p>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        if st.button("🔍 Start Customer Analysis", use_container_width=True, type="primary"):
-            st.session_state.page = 'Customer Diagnosis'
-            st.rerun()
+    if st.button("See more..."):
+        st.session_state.page = 'Customer Diagnosis'
+        st.rerun()

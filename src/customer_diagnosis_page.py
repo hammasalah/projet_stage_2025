@@ -3,7 +3,7 @@ import pandas as pd
 import shap
 import matplotlib.pyplot as plt
 
-def page_customer_diagnosis(df_data, model, explainer):
+def page_customer_diagnosis(df_data, model, explainer, selected_customer_id):
     """
     Displays the page for diagnosing a single customer.
     """
@@ -14,19 +14,6 @@ def page_customer_diagnosis(df_data, model, explainer):
         <p>Advanced AI-powered customer analysis to predict churn risk and provide actionable insights for customer retention strategies.</p>
     </div>
     """, unsafe_allow_html=True)
-
-    # --- SIDEBAR for user controls ---
-    st.sidebar.markdown("---")
-
-    # Creating the dropdown menu to select a customer
-    customer_ids_list = df_data['customerID'].tolist()
-    selected_customer_id = st.sidebar.selectbox(
-        "🔍 Select Customer ID:",
-        customer_ids_list,
-        help="Choose a customer ID to analyze their churn probability and risk factors"
-    )
-
-    st.sidebar.markdown("---")
 
     # --- MAIN PANEL for displaying results ---
     st.markdown(f"""

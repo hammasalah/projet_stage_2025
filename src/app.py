@@ -12,6 +12,7 @@ import shap
 import matplotlib.pyplot as plt
 from customer_diagnosis_page import page_customer_diagnosis
 from global_analytics_page import page_global_analytics
+from sidebar import render_sidebar
 
 # --- App setup ---
 st.set_page_config(
@@ -283,8 +284,11 @@ def get_shap_explainer(_model):
 
 explainer = get_shap_explainer(model)
 
+# --- Sidebar ---
+sidebar_result = render_sidebar(df_data)
+
 # --- Page Routing ---
 if st.session_state.page == 'Customer Diagnosis':
-    page_customer_diagnosis(df_data, model, explainer)
+    page_customer_diagnosis(df_data, model, explainer, sidebar_result)
 elif st.session_state.page == 'Global Analytics':
-    page_global_analytics(df_data)
+    page_global_analytics(df_data, sidebar_result)
