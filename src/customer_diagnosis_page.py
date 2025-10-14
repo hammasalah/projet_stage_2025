@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import shap
 import matplotlib.pyplot as plt
+from streamlit_shap import st_shap
 
 def page_customer_diagnosis(df_data, model, explainer, selected_customer_id):
     """
@@ -106,17 +107,15 @@ def page_customer_diagnosis(df_data, model, explainer, selected_customer_id):
     st.markdown('<h3 style="color: #0059b3;">📈 Factor Contribution Visualization</h3>', unsafe_allow_html=True)
     
     with st.container():
-        shap_plot = shap.force_plot(
-            explainer.expected_value,
-            shap_values[0, :],
-            prediction_features.iloc[0, :],
-            matplotlib=True,
-            show=False,
-            figsize=(20, 6),
-            text_rotation=15
+        # Generate the SHAP force plot as a SHAP object
+        force_plot = shap.force_plot(
+            base_value=explainer.expected_value,
+            shap_values=shap_values[0, :],
+            features=prediction_features.iloc[0, :]
         )
-        st.pyplot(shap_plot, bbox_inches='tight')
-        plt.close()
+        
+        # Use st_shap to display the interactive plot
+        st_shap(force_plot, height=200)
 
     # Enhanced explanation section
     st.markdown("""
