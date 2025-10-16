@@ -1,0 +1,32 @@
+\chapter{Introduction}
+\minitoc
+
+\section{Contexte du Projet}
+La perte de clients, communément appelée "churn", est un phénomène critique pour toute entreprise, en particulier dans le secteur des télécommunications, qui est hautement compétitif. Le churn représente le pourcentage de clients qui cessent d'utiliser les services d'une entreprise sur une période donnée. Un taux de churn élevé peut avoir des conséquences financières désastreuses, car l'acquisition de nouveaux clients coûte souvent beaucoup plus cher que la fidélisation des clients existants.
+
+Ce projet s'inscrit dans ce contexte et vise à développer une solution complète pour l'analyse et la prédiction du churn client. En utilisant des techniques d'apprentissage automatique (Machine Learning), nous cherchons à identifier les facteurs qui influencent le départ des clients et à construire un modèle prédictif capable d'anticiper quels clients sont les plus susceptibles de résilier leur contrat.
+
+\section{Objectifs}
+Les principaux objectifs de ce projet sont les suivants :
+\begin{itemize}[label=\textcolor{maincolor}{\textbullet}]
+    \item \textbf{Analyser les données clients} : Explorer un ensemble de données de clients de télécommunications pour comprendre les tendances et les caractéristiques des clients qui partent.
+    \item \textbf{Identifier les facteurs de churn} : Déterminer les variables clés (démographiques, services souscrits, type de contrat, etc.) qui ont le plus d'impact sur la décision d'un client de partir.
+    \item \textbf{Construire un modèle prédictif performant} : Développer un modèle de Machine Learning capable de prédire avec une grande précision la probabilité de churn pour chaque client.
+    \item \textbf{Assurer l'interprétabilité du modèle} : Utiliser des techniques d'IA explicable (XAI) pour comprendre les raisons derrière les prédictions du modèle, rendant ainsi les résultats plus transparents et exploitables.
+    \item \textbf{Développer un tableau de bord interactif} : Créer une application web (dashboard) permettant aux utilisateurs métier (par exemple, les équipes marketing ou de fidélisation) d'explorer les données, de visualiser les analyses et d'obtenir des diagnostics de churn pour des clients spécifiques.
+\end{itemize}
+
+\section{Structure du Rapport}
+Ce rapport est organisé en plusieurs chapitres pour présenter de manière détaillée chaque étape du projet :
+\begin{itemize}
+    \item \textbf{Chapitre 2 : Exploration et Prétraitement des Données} - Ce chapitre décrit l'ensemble de données utilisé, les analyses exploratoires menées et les étapes de nettoyage et de préparation des données.
+    \item \textbf{Chapitre 3 : Modélisation} - Ce chapitre détaille le choix du modèle d'apprentissage automatique, le processus d'entraînement, l'optimisation des hyperparamètres et l'évaluation des performances.
+    \item \textbf{Chapitre 4 : IA Explicable (XAI)} - Ce chapitre se concentre sur l'interprétabilité du modèle, en expliquant comment les prédictions sont générées et quels facteurs influencent le plus les résultats.
+    \item \textbf{Chapitre 5 : Application et Déploiement} - Ce chapitre présente le tableau de bord interactif développé avec Streamlit, ses fonctionnalités et son architecture.
+    \item \textbf{Chapitre 6 : Conclusion et Perspectives} - Ce chapitre résume les travaux réalisés, discute des résultats obtenus et propose des pistes pour de futurs développements.
+\end{itemize}
+
+\section{Impact Métier}
+La capacité à prédire le churn avec précision et à en comprendre les causes profondes offre une valeur commerciale considérable. En identifiant les clients à risque avant qu'ils ne partent, une entreprise de télécommunications peut mettre en œuvre des stratégies de rétention proactives et ciblées. Au lieu de campagnes marketing de masse coûteuses et inefficaces, les efforts peuvent être concentrés sur les individus les plus susceptibles de partir, avec des offres personnalisées qui répondent directement aux facteurs de leur insatisfaction (par exemple, des remises sur les frais mensuels, des mises à niveau de service, ou un support technique amélioré).
+
+Ce projet ne se contente pas de fournir une prédiction ; il fournit une explication. Le tableau de bord développé sert de pont entre les data scientists et les équipes opérationnelles. Un responsable marketing ou un agent du service client peut, en quelques clics, non seulement voir la probabilité de départ d'un client, mais aussi comprendre que cette probabilité est élevée en raison, par exemple, d'un contrat mensuel et de frais élevés perçus comme non compétitifs. Cette connaissance permet de transformer une analyse de données complexe en une conversation client productive et, finalement, en une meilleure fidélisation. La réduction, même minime, du taux de churn peut se traduire par des millions d'euros de revenus annuels préservés.

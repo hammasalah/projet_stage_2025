@@ -1,0 +1,39 @@
+\chapter{Conclusion et Perspectives}
+\minitoc
+
+\section{Résumé du Projet}
+Ce projet a permis de développer une solution de bout en bout pour l'analyse et la prédiction de la perte de clients dans le secteur des télécommunications. Partant d'un ensemble de données brutes, nous avons mené une analyse exploratoire approfondie, prétraité les données, et entraîné un modèle d'apprentissage automatique performant basé sur l'algorithme CatBoost.
+
+Un aspect central du projet a été l'accent mis sur l'interprétabilité. En utilisant la bibliothèque SHAP, nous avons rendu notre modèle "boîte noire" transparent, permettant de comprendre non seulement les facteurs de churn globaux, mais aussi les raisons spécifiques derrière chaque prédiction individuelle.
+
+Enfin, tous ces éléments ont été intégrés dans un tableau de bord web interactif et esthétique développé avec Streamlit. Cet outil permet aux utilisateurs métier de naviguer facilement à travers les analyses, de filtrer les données et d'obtenir des diagnostics de churn exploitables, comblant ainsi le fossé entre la science des données et la prise de décision stratégique.
+
+\section{Principaux Résultats}
+\begin{itemize}
+    \item Le modèle CatBoost a démontré une excellente performance, avec une aire sous la courbe ROC (AUC) supérieure à 0.85, ce qui indique une forte capacité à distinguer les clients susceptibles de churner de ceux qui ne le sont pas.
+    \item L'analyse SHAP a confirmé que les facteurs les plus influents sur le churn sont le \textbf{type de contrat} (les contrats mensuels étant les plus risqués), l'\textbf{ancienneté} du client (les nouveaux clients sont plus susceptibles de partir), et le \textbf{type de service Internet}.
+    \item Le tableau de bord Streamlit fournit une interface intuitive pour interagir avec le modèle et ses prédictions, rendant la solution accessible à un public non technique.
+\end{itemize}
+
+\section{Limites et Perspectives}
+Bien que le projet ait atteint ses objectifs principaux, il est important de reconnaître ses limites et d'identifier des pistes d'amélioration pour l'avenir.
+
+\subsection{Limites Actuelles}
+\begin{itemize}
+    \item \textbf{Nature statique des données} : Le modèle est entraîné sur un instantané des données clients. Il ne capture pas l'évolution du comportement des clients dans le temps. Par exemple, une augmentation soudaine des appels au service client ou une baisse de l'utilisation des données pourraient être des précurseurs de churn non capturés par le modèle actuel.
+    \item \textbf{Absence de données non structurées} : Le projet n'utilise pas de données non structurées, comme le contenu des e-mails, les transcriptions des appels au service client ou les commentaires sur les réseaux sociaux. L'analyse de ces textes pourrait révéler des sources d'insatisfaction plus subtiles.
+    \item \textbf{Portée de l'ingénierie des caractéristiques} : Bien que les caractéristiques de base soient utilisées, une ingénierie de caractéristiques plus poussée (création de ratios, d'interactions entre variables, etc.) pourrait potentiellement débloquer des performances encore meilleures.
+\end{itemize}
+
+\subsection{Perspectives d'Évolution}
+Plusieurs axes de développement peuvent être envisagés pour enrichir et améliorer la solution :
+\begin{itemize}
+    \item \textbf{Intégration de données temporelles} : Utiliser des modèles capables de traiter des séquences, comme les réseaux de neurones récurrents (RNN) ou les LSTMs, pour modéliser l'historique du client et prédire le churn en fonction de son parcours.
+    \item \textbf{Analyse de survie} : Au lieu de simplement prédire \textit{si} un client va churner (classification binaire), on pourrait utiliser des modèles d'analyse de survie (comme le modèle de Cox) pour prédire \textit{quand} un client est le plus susceptible de partir. Cela permettrait de prioriser les actions de rétention de manière encore plus fine.
+    \item \textbf{Traitement du Langage Naturel (NLP)} : Intégrer des techniques de NLP pour analyser les données textuelles (avis, appels) et extraire des "sentiments" ou des sujets de mécontentement qui pourraient être utilisés comme de nouvelles caractéristiques pour le modèle.
+    \item \textbf{Automatisation du ré-entraînement (MLOps)} : Mettre en place un pipeline MLOps pour automatiser le ré-entraînement périodique du modèle sur de nouvelles données. Cela garantirait que le modèle reste performant et s'adapte aux évolutions du marché et du comportement des clients.
+    \item \textbf{Enrichissement du tableau de bord} : Ajouter des fonctionnalités avancées au tableau de bord, comme des simulations ("what-if analysis") pour permettre aux managers de tester l'impact de différentes stratégies (par exemple, "quel serait le taux de churn si nous baissions le prix de la fibre de 10\% ?").
+\end{itemize}
+
+En conclusion, ce projet constitue une base solide et fonctionnelle. Les perspectives d'amélioration sont nombreuses et passionnantes, et pourraient transformer cet outil d'analyse en un système complet et proactif de gestion du cycle de vie client.
+

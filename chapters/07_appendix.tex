@@ -1,0 +1,92 @@
+\chapter{Annexe}
+\minitoc
+
+\section{Code Source Sélectionné}
+
+\subsection{Extrait de app.py (CSS Personnalisé)}
+\begin{lstlisting}[language=Python, caption={CSS pour le style du tableau de bord}]
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+def apply_custom_css():
+    css = """
+    <style>
+        /* --- Global --- */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #2d3748;
+            background-color: #f7fafc;
+        }
+        
+        .stApp {
+            background-color: #f7fafc;
+        }
+
+        /* --- Main Content --- */
+        .main .block-container {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 5rem;
+            padding-right: 5rem;
+        }
+
+        /* --- Chart Container --- */
+        .chart-container {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease-in-out;
+        }
+        .chart-container:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* ... etc ... */
+    </style>
+    """
+    st.markdown(css, unsafe_allow_html=True)
+\end{lstlisting}
+
+\section{Dépendances du Projet}
+Le fichier \texttt{requirements.txt} contient la liste des bibliothèques Python nécessaires pour exécuter le projet. L'utilisation d'un environnement virtuel est fortement recommandée pour gérer ces dépendances et éviter les conflits.
+
+\begin{lstlisting}[language=bash, caption={Contenu du fichier requirements.txt}]
+pandas>=1.0.0
+scikit-learn>=0.24.0
+xgboost>=1.0.0
+shap>=0.40.0
+streamlit>=1.0.0
+matplotlib>=3.0.0
+seaborn>=0.11.0
+joblib>=1.0.0
+jupyterlab>=3.0.0
+catboost>=1.0.0
+streamlit-shap>=1.0.0
+\end{lstlisting}
+
+\section{Structure du Projet}
+Le code source est organisé de manière modulaire pour faciliter la maintenance et la lisibilité.
+\begin{verbatim}
+.
+|-- data/
+|   `-- WA_Fn-UseC_-Telco-Customer-Churn.csv
+|-- models/
+|   `-- catboost_churn_model.joblib
+|-- src/
+|   |-- app.py
+|   |-- customer_diagnosis_page.py
+|   |-- global_analytics_page.py
+|   |-- sidebar.py
+|   |-- train.py
+|   `-- ...
+|-- chapters/
+|   |-- 01_introduction.tex
+|   `-- ...
+|-- report.tex
+`-- requirements.txt
+\end{verbatim}
+

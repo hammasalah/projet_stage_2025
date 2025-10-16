@@ -1,0 +1,78 @@
+\chapter{Application et Déploiement}
+\minitoc
+
+\section{Présentation de l'Application Streamlit}
+Pour rendre les résultats de notre modèle accessibles et exploitables par des utilisateurs non techniques, un tableau de bord interactif a été développé en utilisant la bibliothèque Python \textbf{Streamlit}. Streamlit est un framework open-source qui permet de créer et de partager rapidement de belles applications web pour des projets de data science.
+
+L'application, dont le code principal se trouve dans \texttt{app.py}, est conçue pour être intuitive et esthétiquement agréable, avec un design moderne de type "Power BI".
+
+\section{Architecture et Fonctionnalités}
+L'application est structurée autour de deux pages principales, accessibles via une barre de navigation latérale :
+
+\subsection{Page 1 : Global Analytics Dashboard}
+Cette page, gérée par \texttt{global\_analytics\_page.py}, offre une vue d'ensemble du churn au niveau de l'entreprise. Elle contient :
+\begin{itemize}
+    \item \textbf{Filtres interactifs} : Les utilisateurs peuvent filtrer les données par type de contrat, genre, etc., pour affiner leur analyse.
+    \item \textbf{Indicateurs de performance clés (KPIs)} : Des cartes affichent des métriques importantes comme le nombre total de clients, le taux de churn global, l'ancienneté moyenne, etc.
+    \item \textbf{Visualisations dynamiques} : Une série de graphiques (camemberts, diagrammes en barres, nuages de points) permettent d'explorer les relations entre les différentes variables et le churn. Ces graphiques sont mis à jour en temps réel en fonction des filtres sélectionnés.
+\end{itemize}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{placeholder.png}
+%     \caption{Aperçu de la page "Global Analytics Dashboard".}
+%     \label{fig:global_analytics}
+% \end{figure}
+
+\subsection{Page 2 : Customer Diagnosis}
+Cette page, gérée par \texttt{customer\_diagnosis\_page.py}, est l'outil de diagnostic individuel. Elle permet à un utilisateur de :
+\begin{enumerate}
+    \item \textbf{Sélectionner un client} via un menu déroulant.
+    \item \textbf{Obtenir une prédiction de churn} pour ce client, affichée sous forme de jauge de probabilité.
+    \item \textbf{Visualiser l'explication de la prédiction} grâce au "force plot" SHAP, qui montre les facteurs contribuant à la décision du modèle.
+\end{enumerate}
+Cette fonctionnalité est essentielle pour passer de la simple prédiction à l'action concrète.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{placeholder.png}
+%     \caption{Aperçu de la page "Customer Diagnosis".}
+%     \label{fig:customer_diagnosis}
+% \end{figure}
+
+\section{Conception de l'Interface Utilisateur (UI/UX)}
+Un soin particulier a été apporté à l'interface utilisateur pour garantir une expérience agréable et efficace. Le fichier \texttt{app.py} contient une section de CSS personnalisé pour :
+\begin{itemize}
+    \item Définir une palette de couleurs moderne et douce, avec le bleu sarcelle (\#008080) comme couleur principale.
+    \item Utiliser une typographie claire et lisible (police "Inter").
+    \item Organiser le contenu sous forme de cartes avec des coins arrondis et des ombres légères pour une meilleure structure visuelle.
+    \item Concevoir une barre de navigation latérale épurée avec des icônes.
+\end{itemize}
+
+\section{Déploiement}
+L'application est conçue pour être facilement déployable, que ce soit pour des tests locaux ou pour une mise en production à grande échelle.
+
+\subsection{Exécution Locale}
+Pour lancer l'application sur une machine locale, il suffit de suivre ces étapes :
+\begin{enumerate}
+    \item Cloner le dépôt Git du projet.
+    \item Créer un environnement virtuel et installer les dépendances requises listées dans le fichier \texttt{requirements.txt}.
+    \begin{lstlisting}[language=bash]
+pip install -r requirements.txt
+    \end{lstlisting}
+    \item Exécuter la commande suivante dans le terminal à la racine du projet :
+    \begin{lstlisting}[language=bash]
+streamlit run src/app.py
+    \end{lstlisting}
+\end{enumerate}
+L'application sera alors accessible dans un navigateur web à l'adresse locale affichée (généralement \texttt{http://localhost:8501}).
+
+\subsection{Déploiement en Production}
+Pour un déploiement en production accessible à un plus grand nombre d'utilisateurs, plusieurs stratégies peuvent être envisagées :
+\begin{itemize}
+    \item \textbf{Streamlit Community Cloud} : C'est la solution la plus simple pour les projets publics. Elle permet de déployer une application directement depuis un dépôt GitHub en quelques clics et gratuitement.
+    \item \textbf{Conteneurisation avec Docker} : L'application peut être encapsulée dans un conteneur Docker. Un \texttt{Dockerfile} peut être créé pour définir l'environnement, copier le code source et spécifier la commande de démarrage. Ce conteneur peut ensuite être déployé sur n'importe quel fournisseur de cloud (AWS, Google Cloud, Azure) via des services comme AWS Fargate, Google Cloud Run ou Azure Container Instances. Cette approche garantit la reproductibilité et l'isolation de l'environnement.
+    \item \textbf{Hébergement sur des serveurs traditionnels} : L'application peut également être déployée sur une machine virtuelle (VM) ou un serveur dédié, en utilisant un serveur web comme Nginx comme proxy inverse pour gérer le trafic et la sécurité.
+\end{itemize}
+Le choix de la méthode de déploiement dépendra des contraintes de sécurité, de budget, de trafic attendu et de l'infrastructure existante de l'entreprise.
+

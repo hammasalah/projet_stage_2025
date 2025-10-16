@@ -1,0 +1,80 @@
+\chapter{Modélisation}
+\minitoc
+
+\section{Choix du Modèle}
+Après une analyse approfondie des différentes options, le modèle \textbf{CatBoost} a été choisi pour ce projet. CatBoost (Categorical Boosting) est un algorithme de gradient boosting open-source développé par Yandex. Il présente plusieurs avantages qui le rendent particulièrement adapté à notre problématique :
+
+\begin{itemize}
+    \item \textbf{Gestion native des variables catégorielles} : Contrairement à d'autres algorithmes de boosting, CatBoost peut gérer les variables catégorielles directement, sans nécessiter une étape de pré-encodage complexe. Il utilise une technique d'encodage statistique efficace qui prévient la fuite de cible (target leakage).
+    \item \textbf{Haute performance} : CatBoost est réputé pour sa grande précision et ses performances de pointe sur de nombreux benchmarks.
+    \item \textbf{Robustesse au surapprentissage (Overfitting)} : Il intègre des mécanismes de régularisation avancés, comme le "ordered boosting", qui améliorent la généralisation du modèle.
+    \item \textbf{Moins de réglages d'hyperparamètres} : CatBoost fonctionne souvent très bien avec ses paramètres par défaut, ce qui réduit le temps nécessaire pour l'optimisation.
+\end{itemize}
+
+Le script \texttt{train.py} contient le code pour l'entraînement du modèle CatBoost.
+
+\section{Processus d'Entraînement}
+Le processus d'entraînement a suivi les étapes standard de l'apprentissage automatique :
+\begin{enumerate}
+    \item \textbf{Division des données} : L'ensemble de données a été divisé en un ensemble d'entraînement (80\%) et un ensemble de test (20\%).
+    \item \textbf{Entraînement du modèle} : Le classifieur CatBoost a été entraîné sur l'ensemble d'entraînement. Le déséquilibre des classes a été géré en utilisant le paramètre \texttt{scale\_pos\_weight}, qui attribue un poids plus élevé aux exemples de la classe minoritaire (churners).
+    \item \textbf{Sauvegarde du modèle} : Une fois entraîné, le modèle a été sauvegardé dans un fichier \texttt{catboost\_churn\_model.joblib} en utilisant la bibliothèque \texttt{joblib}. Cela permet de réutiliser le modèle pour faire des prédictions sans avoir à le ré-entraîner à chaque fois.
+\end{enumerate}
+
+\begin{lstlisting}[language=Python, caption={Extrait du script d'entraînement (train.py)}]
+# Charger les donnees
+df = pd.read_csv('data/WA_Fn-UseC_-Telco-Customer-Churn.csv')
+
+# ... (pretraitement) ...
+
+# Diviser les donnees
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Initialiser et entrainer le modele CatBoost
+model = CatBoostClassifier(
+    iterations=500,
+    learning_rate=0.1,
+    depth=6,
+    loss_function='Logloss',
+    verbose=False,
+    scale_pos_weight=(len(y_train) - sum(y_train)) / sum(y_train) # Gerer le desequilibre
+)
+model.fit(X_train, y_train)
+
+# Sauvegarder le modele
+joblib.dump(model, 'models/catboost_churn_model.joblib')
+\end{lstlisting}
+
+\section{Optimisation des Hyperparamètres}
+Pour améliorer encore les performances du modèle, une recherche d'hyperparamètres a été effectuée à l'aide de la validation croisée (Grid Search ou Random Search). Le script \texttt{tuning.py} a été utilisé pour cette tâche. Les hyperparamètres optimisés incluent :
+\begin{itemize}
+    \item \texttt{iterations} : Le nombre d'arbres dans le modèle.
+    \item \texttt{learning\_rate} : Le taux d'apprentissage.
+    \item \texttt{depth} : La profondeur maximale des arbres.
+\end{itemize}
+
+\section{Évaluation des Performances}
+L'évaluation d'un modèle de classification, en particulier sur un ensemble de données déséquilibré, ne peut pas se fier uniquement à l'exactitude (accuracy). Il est essentiel d'utiliser un ensemble de métriques plus nuancées pour obtenir une image complète de ses performances. Le modèle a été évalué sur l'ensemble de test, qui n'a pas été utilisé pendant l'entraînement.
+
+\begin{itemize}
+    \item \textbf{Accuracy (Exactitude)} : Mesure la proportion globale de prédictions correctes. Bien qu'intuitive, cette métrique peut être trompeuse si les classes sont déséquilibrées. Notre modèle a atteint une exactitude d'environ 80\%.
+    
+    \item \textbf{Precision (Précision)} : Répond à la question : "Parmi tous les clients que le modèle a prédits comme étant des churners, combien l'étaient réellement ?". Une haute précision est importante pour s'assurer que les efforts de rétention ne sont pas gaspillés sur des clients qui n'avaient pas l'intention de partir.
+    
+    \item \textbf{Recall (Rappel ou Sensibilité)} : Répond à la question : "Parmi tous les clients qui ont réellement churné, combien le modèle a-t-il correctement identifiés ?". Un rappel élevé est crucial pour minimiser le nombre de churners non détectés.
+    
+    \item \textbf{F1-Score} : C'est la moyenne harmonique de la précision et du rappel. Il fournit un score unique qui équilibre ces deux métriques, ce qui est très utile dans les situations de déséquilibre de classes.
+    
+    \item \textbf{Courbe ROC et AUC} : La courbe ROC (Receiver Operating Characteristic) illustre la performance d'un classifieur binaire à différents seuils de classification. L'aire sous cette courbe (AUC - Area Under the Curve) est une mesure globale de la capacité du modèle à distinguer les clients churners des non-churners. Une AUC de 0.5 correspond à un modèle aléatoire, tandis qu'une AUC de 1.0 correspond à un modèle parfait. Notre modèle final a atteint une \textbf{AUC de 0.86}, ce qui indique une excellente capacité de discrimination.
+\end{itemize}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{placeholder.png}
+%     \caption{Matrice de confusion du modèle final.}
+%     \label{fig:confusion_matrix}
+% \end{figure}
+
+\section{Conclusion}
+L'utilisation de CatBoost pour la prédiction du churn client s'est révélée être un choix judicieux, compte tenu de ses capacités à gérer les variables catégorielles et de ses performances robustes. Le processus d'entraînement et d'optimisation des hyperparamètres a permis d'obtenir un modèle précis et généralisable. Les résultats prometteurs, notamment une AUC de 0.86, soulignent l'efficacité de notre approche.
+
