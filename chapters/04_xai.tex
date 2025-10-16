@@ -1,0 +1,63 @@
+\chapter{IA Explicable (XAI)}
+\minitoc
+
+\section{Importance de l'Interprétabilité}
+Dans de nombreux contextes métier, un modèle de Machine Learning qui fonctionne comme une "boîte noire" (black box) est insuffisant. Même si le modèle est très précis, les décideurs ont besoin de comprendre \textit{pourquoi} une certaine prédiction a été faite. C'est là qu'intervient l'IA Explicable (XAI - Explainable AI).
+
+L'interprétabilité est cruciale pour :
+\begin{itemize}
+    \item \textbf{La confiance} : Les utilisateurs sont plus susceptibles de faire confiance et d'adopter un modèle s'ils comprennent son fonctionnement.
+    \item \textbf{L'actionnabilité} : Comprendre les facteurs qui conduisent au churn permet de mettre en place des actions de fidélisation ciblées. Par exemple, si un client est prédit comme churner à cause d'un prix élevé, une offre promotionnelle pourrait être proposée.
+    \item \textbf{Le débogage} : L'explicabilité aide à identifier les biais potentiels ou les erreurs dans le modèle.
+    \item \textbf{La conformité réglementaire} : Certaines réglementations (comme le RGPD) exigent une explication des décisions prises par des algorithmes.
+\end{itemize}
+
+\section{Introduction à SHAP}
+Pour rendre notre modèle CatBoost interprétable, nous avons utilisé la méthode \textbf{SHAP (SHapley Additive exPlanations)}. SHAP est une approche basée sur la théorie des jeux pour expliquer la sortie de n'importe quel modèle de Machine Learning. Elle attribue à chaque caractéristique une "valeur SHAP", qui représente la contribution de cette caractéristique à la prédiction pour une instance donnée.
+
+Les valeurs SHAP ont des propriétés désirables :
+\begin{itemize}
+    \item \textbf{Cohérence locale} : La somme des valeurs SHAP de toutes les caractéristiques est égale à la différence entre la prédiction du modèle pour cette instance et la prédiction de base (la moyenne des prédictions sur l'ensemble des données).
+    \item \textbf{Cohérence globale} : L'importance globale d'une caractéristique peut être calculée en faisant la moyenne des valeurs SHAP absolues pour cette caractéristique sur l'ensemble des données.
+\end{itemize}
+
+\section{Analyse des Prédictions}
+Dans notre application, SHAP est utilisé de deux manières : pour l'analyse globale et pour le diagnostic individuel.
+
+\subsection{Importance Globale des Caractéristiques}
+En analysant les valeurs SHAP sur l'ensemble de l'ensemble de données, nous pouvons déterminer quelles caractéristiques ont le plus d'impact sur le churn en général.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{placeholder.png}
+%     \caption{Graphique résumé SHAP montrant l'importance globale des caractéristiques.}
+%     \label{fig:shap_summary}
+% \end{figure}
+
+Ce graphique montre que les caractéristiques les plus importantes pour prédire le churn sont :
+\begin{enumerate}
+    \item \texttt{Contract} : Le type de contrat (les contrats de mois en mois sont un fort indicateur de churn).
+    \item \texttt{tenure} : L'ancienneté du client.
+    \item \texttt{InternetService} : Le type de service Internet (la fibre optique est souvent associée à un churn plus élevé, peut-être en raison de problèmes de service ou de prix).
+\end{enumerate}
+
+\subsection{Diagnostic Individuel des Clients}
+La véritable puissance de SHAP réside dans sa capacité à expliquer des prédictions individuelles. Dans la page "Customer Diagnosis" de notre tableau de bord, nous utilisons un "force plot" SHAP pour visualiser les forces qui poussent la prédiction du modèle vers le churn (en rouge) ou vers la rétention (en bleu) pour un client spécifique.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{placeholder.png}
+%     \caption{Exemple de "Force Plot" SHAP pour un client individuel.}
+%     \label{fig:shap_force_plot}
+% \end{figure}
+
+Ce graphique est un outil de diagnostic extrêmement puissant. Il se lit de la manière suivante :
+\begin{itemize}
+    \item La \textbf{valeur de base (base value)} est la prédiction moyenne sur l'ensemble des données.
+    \item Les \textbf{flèches rouges} représentent les caractéristiques qui augmentent la probabilité de churn pour ce client. La longueur de la flèche indique l'ampleur de l'impact.
+    \item Les \textbf{flèches bleues} représentent les caractéristiques qui diminuent la probabilité de churn (c'est-à-dire, les facteurs de rétention).
+    \item La \textbf{valeur finale (f(x))} est la prédiction du modèle pour ce client spécifique, après avoir additionné les contributions de toutes les caractéristiques à la valeur de base.
+\end{itemize}
+
+Cet outil est extrêmement utile pour les équipes de support client. Par exemple, si un client appelle, un agent peut rapidement générer ce graphique et voir que le client est à risque de churner principalement à cause de ses frais mensuels élevés et de l'absence de support technique. L'agent peut alors proposer une solution ciblée et personnalisée, comme une réduction temporaire ou un service de support technique premium offert, transformant une interaction potentiellement négative en une opportunité de fidélisation.
+

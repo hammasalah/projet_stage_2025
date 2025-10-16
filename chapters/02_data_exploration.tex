@@ -1,0 +1,88 @@
+\chapter{Exploration et Prétraitement des Données}
+\minitoc
+
+\section{Description de l'Ensemble de Données}
+Le projet repose sur l'ensemble de données "Telco Customer Churn", qui est une source de données classique pour les problèmes de prédiction de churn. Il contient des informations sur 7043 clients d'une entreprise de télécommunications fictive. Pour chaque client, nous disposons de 21 attributs, qui peuvent être regroupés en trois catégories principales :
+
+\begin{enumerate}
+    \item \textbf{Informations Démographiques} :
+    \begin{itemize}
+        \item \texttt{gender} : Le genre du client (Homme/Femme).
+        \item \texttt{SeniorCitizen} : Si le client est une personne âgée ou non (1, 0).
+        \item \texttt{Partner} : Si le client a un partenaire ou non (Oui, Non).
+        \item \texttt{Dependents} : Si le client a des personnes à charge ou non (Oui, Non).
+    \end{itemize}
+
+    \item \textbf{Services Souscrits} :
+    \begin{itemize}
+        \item \texttt{PhoneService}, \texttt{MultipleLines}, \texttt{InternetService}, \texttt{OnlineSecurity}, \texttt{OnlineBackup}, \texttt{DeviceProtection}, \texttt{TechSupport}, \texttt{StreamingTV}, \texttt{StreamingMovies}.
+    \end{itemize}
+
+    \item \textbf{Informations sur le Contrat et la Facturation} :
+    \begin{itemize}
+        \item \texttt{tenure} : Le nombre de mois pendant lesquels le client est resté avec l'entreprise.
+        \item \texttt{Contract} : Le type de contrat (Mois par mois, Un an, Deux ans).
+        \item \texttt{PaperlessBilling} : Si le client a une facturation dématérialisée (Oui, Non).
+        \item \texttt{PaymentMethod} : La méthode de paiement du client.
+        \item \texttt{MonthlyCharges} : Le montant facturé au client mensuellement.
+        \item \texttt{TotalCharges} : Le montant total facturé au client.
+    \end{itemize}
+\end{enumerate}
+
+La variable cible de notre étude est \texttt{Churn}, qui indique si le client a quitté l'entreprise au cours du dernier mois (Oui ou Non).
+
+\section{Analyse Exploratoire des Données (EDA)}
+L'analyse exploratoire des données est une étape cruciale pour comprendre la structure des données, identifier les relations entre les variables et formuler des hypothèses. Plusieurs visualisations ont été créées dans le tableau de bord pour faciliter cette exploration.
+
+\subsection{Distribution de la Variable Cible}
+La première étape a été d'examiner la distribution de la variable \texttt{Churn}.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.6\textwidth]{placeholder.png}
+%     \caption{Distribution du Churn.}
+%     \label{fig:churn_dist}
+% \end{figure}
+L'analyse a montré que l'ensemble de données est déséquilibré, avec environ 26.5\% de clients ayant churné. Ce déséquilibre doit être pris en compte lors de la modélisation pour éviter que le modèle ne soit biaisé en faveur de la classe majoritaire (les non-churners).
+
+\subsection{Analyse des Variables Numériques}
+L'analyse des variables numériques comme \texttt{tenure}, \texttt{MonthlyCharges} et \texttt{TotalCharges} a révélé des informations intéressantes.
+\begin{itemize}
+    \item Les clients qui churnent ont tendance à avoir une ancienneté (\texttt{tenure}) plus faible.
+    \item Les clients qui churnent ont tendance à avoir des frais mensuels (\texttt{MonthlyCharges}) plus élevés.
+\end{itemize}
+
+% \begin{figure}[H]
+%     \centering
+%     \begin{subfigure}{.5\textwidth}
+%         \centering
+%         \includegraphics[width=\linewidth]{placeholder.png}
+%         \caption{Churn en fonction de l'ancienneté.}
+%     \end{subfigure}%
+%     \begin{subfigure}{.5\textwidth}
+%         \centering
+%         \includegraphics[width=\linewidth]{placeholder.png}
+%         \caption{Churn en fonction des frais mensuels.}
+%     \end{subfigure}
+%     \caption{Analyse des variables numériques.}
+%     \label{fig:numeric_analysis}
+% \end{figure}
+
+\section{Prétraitement des Données}
+Avant d'entraîner le modèle, les données brutes ont dû être nettoyées et transformées. Cette étape est fondamentale pour garantir la qualité et la cohérence des données qui alimenteront le modèle.
+
+\begin{itemize}
+    \item \textbf{Gestion des valeurs manquantes} : Une inspection des données a révélé que la colonne \texttt{TotalCharges} contenait des valeurs manquantes. Ces cas correspondaient à des clients nouvellement inscrits (avec une ancienneté, \texttt{tenure}, de 0), pour qui aucun frais total n'avait encore été accumulé. Logiquement, ces valeurs manquantes ont été remplacées par 0.
+
+    \item \textbf{Conversion de type} : La colonne \texttt{TotalCharges}, après traitement des valeurs manquantes, était de type "object" (chaîne de caractères). Elle a été convertie en un type numérique pour permettre les calculs mathématiques.
+
+    \item \textbf{Encodage des variables catégorielles} : Les modèles de Machine Learning ne peuvent pas traiter directement les données textuelles. Par conséquent, toutes les variables catégorielles ont été transformées en représentations numériques.
+    \begin{itemize}
+        \item Pour les variables binaires (comme \texttt{gender}, \texttt{Partner}, \texttt{Dependents}), un encodage simple (0 ou 1) a été appliqué.
+        \item Pour les variables avec plus de deux catégories (comme \texttt{Contract}, \texttt{InternetService}), la technique du \textit{One-Hot Encoding} a été utilisée. Cette méthode crée de nouvelles colonnes binaires pour chaque catégorie, évitant ainsi d'introduire une relation d'ordre artificielle entre les catégories.
+    \end{itemize}
+
+    \item \textbf{Mise à l'échelle des caractéristiques (Feature Scaling)} : Les variables numériques (\texttt{tenure}, \texttt{MonthlyCharges}, \texttt{TotalCharges}) avaient des échelles très différentes. Pour éviter que les variables avec des échelles plus grandes ne dominent le modèle, une mise à l'échelle a été appliquée. Nous avons utilisé le \texttt{StandardScaler} de Scikit-learn, qui transforme chaque caractéristique pour qu'elle ait une moyenne de 0 et un écart-type de 1. Cette standardisation est particulièrement importante pour les algorithmes sensibles aux échelles, y compris les modèles régularisés comme CatBoost.
+\end{itemize}
+
+Ces étapes de prétraitement ont permis de créer un ensemble de données propre, cohérent et optimisé pour l'entraînement d'un modèle de Machine Learning performant.
+
