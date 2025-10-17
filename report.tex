@@ -19,6 +19,7 @@
 \usepackage{enumitem}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
+\usepackage{helvet}
 \usepackage{imakeidx}
 \usepackage{lipsum} % For dummy text
 \usepackage{tikz}
@@ -39,6 +40,9 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.98,0.98,0.98}
 \definecolor{maincolor}{rgb}{0.0, 0.5, 0.5} % Teal
+\definecolor{coverblue}{HTML}{002060}
+\definecolor{coverburgundy}{HTML}{800000}
+\definecolor{covertext}{HTML}{2D3748}
 
 \setlength{\headheight}{14pt}
 \setcounter{secnumdepth}{3}
@@ -86,7 +90,7 @@
 % --- Hyperlinks ---
 \hypersetup{
     colorlinks=true,
-    linkcolor=maincolor,
+    linkcolor=black,
     filecolor=magenta,      
     urlcolor=cyan,
     citecolor=maincolor,
@@ -97,35 +101,46 @@
 
 % --- Title Page ---
 \begin{titlepage}
-    \centering
-    \vspace*{1cm}
-    
-    \Huge\bfseries\textcolor{maincolor}{Rapport de Projet : Analyse et Prédiction de la Perte de Clients (Churn)}
-    
-    \vspace{1.5cm}
-    
-    \Large\textbf{Projet de Stage 2025}
-    
-    \vspace{2cm}
-    
-    \begin{figure}[H]
-        \centering
-        % \includegraphics[width=0.5\textwidth]{logo.png} % Placeholder for a logo
-    \end{figure}
-    
-    \vspace{2cm}
-    
-    \Large
-    \begin{tabular}{ll}
-        \textbf{Auteur} : & GitHub Copilot \\
-        \textbf{Date} : & \today \\
-        \textbf{Version} : & 1.0 \\
-    \end{tabular}
-    
+    \thispagestyle{empty}
+    \sffamily
+    \begin{tikzpicture}[remember picture, overlay]
+        \path[fill=coverblue!85] ([xshift=-1.5cm,yshift=1.2cm]current page.north west)
+            .. controls ([xshift=1.8cm,yshift=-0.5cm]current page.north west) and ([xshift=-0.6cm,yshift=-5.5cm]current page.west)
+            .. ([xshift=-1.2cm,yshift=-1.2cm]current page.south west)
+            -- ([xshift=-2.4cm,yshift=-0.8cm]current page.south west) -- cycle;
+        \path[fill=coverburgundy!80] ([xshift=1.6cm,yshift=1.2cm]current page.north east)
+            .. controls ([xshift=-1.8cm,yshift=-0.4cm]current page.north east) and ([xshift=1cm,yshift=-5.2cm]current page.east)
+            .. ([xshift=1.8cm,yshift=-1.4cm]current page.south east)
+            -- ([xshift=2.6cm,yshift=-0.6cm]current page.south east) -- cycle;
+        \node[anchor=north west, rounded corners=4pt,
+              minimum width=3.2cm, minimum height=2.2cm, align=center,
+              fill=white] at ([xshift=1.5cm,yshift=-1.5cm]current page.north west)
+              {\includegraphics[width=2.8cm]{logoesprim.png}};
+        \node[anchor=north east, rounded corners=4pt,
+              minimum width=3.2cm, minimum height=2.2cm, align=center,
+              fill=white] at ([xshift=-1.5cm,yshift=-1.5cm]current page.north east)
+              {\includegraphics[width=2.8cm]{entreprise-logo.png}};
+    \end{tikzpicture}
+
+    \begin{center}
+        \vspace*{5.5cm}
+        {\Large\bfseries\textcolor{coverblue}{RAPPORT DE PROJET}}\par
+        \vspace{1.4cm}
+        {\Huge\bfseries\textcolor{coverburgundy}{ANALYSE ET PRÉDICTION DE LA\\[0.3cm]PERTE DE CLIENTS (CHURN)}}\par
+        \vspace{2.8cm}
+        {\large
+        \begin{tabular}{@{}ll@{}}
+            \textcolor{covertext}{\textbf{Auteurs :}} & \textcolor{covertext}{Mohamed Salah Saoudi \& Elmufti Mayssem} \\[0.4cm]
+            \textcolor{covertext}{\textbf{Date :}} & \textcolor{covertext}{01-31 août 2025} \\[0.4cm]
+            \textcolor{covertext}{\textbf{Établissement :}} & \textcolor{covertext}{ESPRIM} \\[0.4cm]
+            \textcolor{covertext}{\textbf{Entreprise :}} & \textcolor{covertext}{INSITFUL} \\[0.4cm]
+            \textcolor{covertext}{\textbf{Tuteur de stage :}} & \textcolor{covertext}{Elgregba Amira} \\
+        \end{tabular}}
+        \vspace{3cm}
+
+        {\Large\textcolor{covertext}{\textbf{Année universitaire :} 2025 -- 2026}}\par
+    \end{center}
     \vfill
-    
-    \large\textit{Un tableau de bord analytique pour comprendre et anticiper le départ des clients.}
-    
 \end{titlepage}
 
 % --- Table of Contents ---

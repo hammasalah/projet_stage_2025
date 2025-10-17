@@ -45,24 +45,24 @@
 \contentsline {section}{\numberline {6.5}Accompagnement utilisateur}{14}{section.6.5}%
 \contentsline {chapter}{\numberline {7}Analyse Fonctionnelle des Cas d’Utilisation}{15}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Diagramme de Classes}{15}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Cas d’Utilisation}{16}{section.7.2}%
+\contentsline {section}{\numberline {7.2}Cas d’Utilisation}{15}{section.7.2}%
 \contentsline {subsection}{\numberline {7.2.1}UC-01 : Analyser le Churn Global}{16}{subsection.7.2.1}%
 \contentsline {subsection}{\numberline {7.2.2}UC-02 : Diagnostiquer un Client Spécifique}{17}{subsection.7.2.2}%
 \contentsline {section}{\numberline {7.3}Règles métier et validations}{18}{section.7.3}%
 \contentsline {section}{\numberline {7.4}Correspondance besoins-fonctions}{18}{section.7.4}%
-\contentsline {chapter}{\numberline {8}Interface Utilisateur}{20}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Page d'Analyse Globale (Global Analytics Dashboard)}{20}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Page de Diagnostic Client (Customer Diagnosis)}{20}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Palette de Couleurs et Style}{21}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Système de design}{21}{section.8.4}%
-\contentsline {section}{\numberline {8.5}Comportement responsive}{22}{section.8.5}%
-\contentsline {section}{\numberline {8.6}Accessibilité et internationalisation}{22}{section.8.6}%
-\contentsline {chapter}{\numberline {9}Améliorations Futures}{23}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Enrichissement du Modèle}{23}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Améliorations de l'Application}{23}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Déploiement et MLOps}{23}{section.9.3}%
-\contentsline {section}{\numberline {9.4}Feuille de route indicative}{24}{section.9.4}%
-\contentsline {section}{\numberline {9.5}Indicateurs de succès}{24}{section.9.5}%
-\contentsline {section}{\numberline {9.6}Risques et plans de mitigation}{24}{section.9.6}%
-\contentsline {chapter}{\numberline {10}Conclusion}{25}{chapter.10}%
-\contentsline {chapter}{\numberline {A}Glossaire}{26}{appendix.A}%
+\contentsline {chapter}{\numberline {8}Interface Utilisateur}{19}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Page d'Analyse Globale (Global Analytics Dashboard)}{19}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Page de Diagnostic Client (Customer Diagnosis)}{19}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Palette de Couleurs et Style}{20}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Système de design}{20}{section.8.4}%
+\contentsline {section}{\numberline {8.5}Comportement responsive}{21}{section.8.5}%
+\contentsline {section}{\numberline {8.6}Accessibilité et internationalisation}{21}{section.8.6}%
+\contentsline {chapter}{\numberline {9}Améliorations Futures}{22}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Enrichissement du Modèle}{22}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Améliorations de l'Application}{22}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Déploiement et MLOps}{22}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Feuille de route indicative}{23}{section.9.4}%
+\contentsline {section}{\numberline {9.5}Indicateurs de succès}{23}{section.9.5}%
+\contentsline {section}{\numberline {9.6}Risques et plans de mitigation}{23}{section.9.6}%
+\contentsline {chapter}{\numberline {10}Conclusion}{24}{chapter.10}%
+\contentsline {chapter}{\numberline {A}Glossaire}{25}{appendix.A}%
