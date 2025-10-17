@@ -1,0 +1,83 @@
+\chapter{Glossaire}
+\label{chap:glossaire}
+
+\begin{longtable}{p{0.3\textwidth} p{0.7\textwidth}}
+\toprule
+\textbf{Terme} & \textbf{Définition} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Terme} & \textbf{Définition} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+
+\multicolumn{2}{c}{\textbf{Concepts Généraux}} \\
+\midrule
+Churn (Perte de Clients) & Phénomène par lequel les clients d'une entreprise cessent d'utiliser ses services. Le taux de churn est un indicateur clé de la satisfaction et de la fidélité des clients. \\
+\midrule
+Machine Learning (Apprentissage Automatique) & Un domaine de l'intelligence artificielle qui donne aux ordinateurs la capacité d'apprendre à partir de données sans être explicitement programmés. \\
+\midrule
+IA Explicable (XAI) & Un ensemble de techniques et de méthodes qui permettent de comprendre et d'interpréter les décisions prises par les modèles d'apprentissage automatique. \\
+\midrule
+Indicateur de Performance Clé (KPI) & Une valeur mesurable qui démontre l'efficacité avec laquelle une entreprise atteint ses objectifs commerciaux clés. \\
+\midrule
+MLOps (Machine Learning Operations) & Une culture et une pratique qui visent à unifier le développement de systèmes d'apprentissage automatique (Dev) et le déploiement de ces systèmes (Ops). \\
+\midrule
+\multicolumn{2}{c}{\textbf{Colonnes de l'Ensemble de Données}} \\
+\midrule
+\texttt{Churn} & La variable cible. Indique si le client a quitté l'entreprise (Oui/Non). \\
+\texttt{Contract} & Le type de contrat du client (Mois par mois, Un an, Deux ans). \\
+\texttt{Dependents} & Indique si le client a des personnes à charge (Oui/Non). \\
+\texttt{DeviceProtection} & Indique si le client a une assurance pour ses appareils (Oui/Non). \\
+\texttt{gender} & Le genre du client (Homme/Femme). \\
+\texttt{InternetService} & Indique si le client a un service Internet (DSL, Fibre optique, Non). \\
+\texttt{MonthlyCharges} & Le montant facturé au client chaque mois. \\
+\texttt{MultipleLines} & Indique si le client a plusieurs lignes téléphoniques (Oui/Non). \\
+\texttt{OnlineBackup} & Indique si le client a un service de sauvegarde en ligne (Oui/Non). \\
+\texttt{OnlineSecurity} & Indique si le client a un service de sécurité en ligne (Oui/Non). \\
+\texttt{PaperlessBilling} & Indique si le client utilise la facturation dématérialisée (Oui/Non). \\
+\texttt{Partner} & Indique si le client a un partenaire (Oui/Non). \\
+\texttt{PaymentMethod} & La méthode de paiement du client. \\
+\texttt{PhoneService} & Indique si le client a un service téléphonique (Oui/Non). \\
+\texttt{SeniorCitizen} & Indique si le client est une personne âgée (1 pour Oui, 0 pour Non). \\
+\texttt{StreamingMovies} & Indique si le client a un service de streaming de films (Oui/Non). \\
+\texttt{StreamingTV} & Indique si le client a un service de streaming TV (Oui/Non). \\
+\texttt{TechSupport} & Indique si le client a un support technique (Oui/Non). \\
+\texttt{tenure} & Le nombre de mois depuis que le client est abonné. \\
+\texttt{TotalCharges} & Le montant total facturé au client sur toute la durée de son abonnement. \\
+\midrule
+\multicolumn{2}{c}{\textbf{Termes Techniques de Modélisation}} \\
+\midrule
+CatBoost & Un algorithme d'apprentissage automatique basé sur le gradient boosting, optimisé pour la gestion des variables catégorielles. \\
+\midrule
+One-Hot Encoding & Une technique de prétraitement pour convertir des variables catégorielles en un format numérique que les modèles peuvent comprendre, en créant une colonne binaire pour chaque catégorie. \\
+\midrule
+Feature Scaling (Mise à l'échelle) & Le processus de normalisation de la plage des variables numériques. \texttt{StandardScaler} est une méthode qui centre les données autour de 0 avec un écart-type de 1. \\
+\midrule
+Hyperparamètres & Les paramètres de configuration d'un modèle qui ne sont pas appris à partir des données, mais qui sont définis avant le processus d'entraînement (ex: taux d'apprentissage, profondeur des arbres). \\
+\midrule
+Surapprentissage (Overfitting) & Un problème où un modèle d'apprentissage automatique apprend trop bien les données d'entraînement, au point de mal généraliser à de nouvelles données non vues. \\
+\midrule
+\multicolumn{2}{c}{\textbf{Métriques d'Évaluation}} \\
+\midrule
+Accuracy (Exactitude) & La proportion de prédictions correctes parmi le nombre total de cas. \\
+\midrule
+Precision (Précision) & Parmi toutes les prédictions positives, la proportion de celles qui étaient réellement positives. \\
+\midrule
+Recall (Rappel) & Parmi tous les cas réellement positifs, la proportion qui a été correctement identifiée par le modèle. \\
+\midrule
+F1-Score & La moyenne harmonique de la précision et du rappel, fournissant un score unique qui équilibre les deux. \\
+\midrule
+Courbe ROC et AUC & La courbe ROC (Receiver Operating Characteristic) est un graphique qui illustre la performance d'un classifieur. L'AUC (Area Under the Curve) mesure la capacité globale du modèle à distinguer les classes. Une AUC de 1.0 est parfaite, 0.5 est aléatoire. \\
+\midrule
+\multicolumn{2}{c}{\textbf{Autres Outils et Bibliothèques}} \\
+\midrule
+SHAP (SHapley Additive exPlanations) & Une méthode d'IA explicable qui attribue à chaque caractéristique une valeur d'importance pour une prédiction donnée. \\
+\midrule
+Streamlit & Une bibliothèque Python open-source pour créer et partager des applications web personnalisées pour la science des données. \\
+\midrule
+Docker & Une plateforme pour développer, expédier et exécuter des applications dans des conteneurs, assurant la cohérence des environnements. \\
+
+\end{longtable}

@@ -293,6 +293,9 @@ INPUT chapters\06_conclusion.tex
 INPUT .\chapters\07_appendix.tex
 INPUT .\chapters\07_appendix.tex
 INPUT chapters\07_appendix.tex
+INPUT .\chapters\08_glossary.tex
+INPUT .\chapters\08_glossary.tex
+INPUT chapters\08_glossary.tex
 INPUT report.aux
 INPUT .\report.out
 INPUT .\report.out
