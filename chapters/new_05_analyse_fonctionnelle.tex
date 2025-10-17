@@ -1,0 +1,286 @@
+\chapter{Analyse Fonctionnelle des Cas d’Utilisation}
+\label{chap:analyse_fonctionnelle}
+
+\section{Diagramme de Classes}
+Le diagramme de classes ci-dessous modélise les principales entités du système et leurs relations. Il illustre la structure de l'application, depuis l'interface utilisateur jusqu'au modèle de prédiction.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        class/.style={
+            rectangle,
+            draw=maincolor,
+            fill=backcolour,
+            rounded corners=3pt,
+            thick,
+            text width=4.6cm,
+            align=left,
+            inner sep=6pt
+        },
+        arrow/.style={->, >=stealth, thick, draw=maincolor}
+    ]
+        \node[class] (app) at (0,0) {
+            \begin{tabular}{@{}l@{}}
+                	extbf{StreamlitApp}\\\hline
+                	extbf{Attributs}\\sidebar : Sidebar\\\hline
+                	extbf{Méthodes}\\run()
+            \end{tabular}
+        };
+
+        \node[class] (global) at (-6,-4) {
+            \begin{tabular}{@{}l@{}}
+                	extbf{GlobalAnalyticsPage}\\\hline
+                	extbf{Données}\\data : DataFrame\\\hline
+                	extbf{Méthodes}\\display\_kpis()\\display\_charts()
+            \end{tabular}
+        };
+
+        \node[class] (diag) at (6,-4) {
+            \begin{tabular}{@{}l@{}}
+                	extbf{CustomerDiagnosisPage}\\\hline
+                	extbf{Dépendances}\\predictor : ChurnPredictor\\\hline
+                	extbf{Méthodes}\\display\_prediction()\\display\_explanation()
+            \end{tabular}
+        };
+
+        \node[class] (predictor) at (6,-9) {
+            \begin{tabular}{@{}l@{}}
+                	extbf{ChurnPredictor}\\\hline
+                	extbf{Attributs}\\model : CatBoostModel\\explainer : ShapExplainer\\\hline
+                	extbf{Méthodes}\\predict(customer)\\explain(customer)
+            \end{tabular}
+        };
+
+        \node[class] (model) at (2,-13) {
+            \begin{tabular}{@{}l@{}}
+                	extbf{CatBoostModel}\\\hline
+                	extbf{Attributs}\\model\_path : string\\\hline
+                	extbf{Méthodes}\\load()\\predict\_proba(data)
+            \end{tabular}
+        };
+
+        \node[class] (explainer) at (10,-13) {
+            \begin{tabular}{@{}l@{}}
+                	extbf{ShapExplainer}\\\hline
+                	extbf{Attributs}\\explainer : shap.TreeExplainer\\\hline
+                	extbf{Méthodes}\\get\_shap\_values(data)
+            \end{tabular}
+        };
+
+        \node[class] (data) at (-6,-9) {
+            \begin{tabular}{@{}l@{}}
+                	extbf{CustomerData}\\\hline
+                	extbf{Attributs}\\raw\_data : DataFrame\\\hline
+                	extbf{Méthodes}\\load\_data()\\preprocess()
+            \end{tabular}
+        };
+
+        \draw[arrow] (app.south west) .. controls (-2,-2) .. node[near start, left]{composition} (global.north);
+        \draw[arrow] (app.south east) .. controls (2,-2) .. node[near start, right]{composition} (diag.north);
+        \draw[arrow] (diag.south) -- node[midway, right]{agrégation} (predictor.north);
+        \draw[arrow] (predictor.south west) .. controls (4,-11) .. node[midway, left]{utilise} (model.north);
+        \draw[arrow] (predictor.south east) .. controls (8,-11) .. node[midway, right]{utilise} (explainer.north);
+        \draw[arrow, dashed] (global.south east) .. controls (-4,-7) .. node[midway, left]{dépend de} (data.north);
+        \draw[arrow, dashed] (predictor.west) .. controls (0,-9) .. node[midway, below]{dépend de} (data.east);
+    \end{tikzpicture}
+    \caption{Diagramme de classes du système.}
+    \label{fig:class_diagram}
+\end{figure}
+
+\textit{Description du diagramme (à compléter avec le diagramme réel) : Le diagramme montre une classe \texttt{StreamlitApp} qui gère l'interface utilisateur. Cette classe est composée de deux pages principales : \texttt{GlobalAnalyticsPage} et \texttt{CustomerDiagnosisPage}. La page de diagnostic interagit avec un \texttt{ChurnPredictor}, qui lui-même encapsule le \texttt{CatBoostModel} et un \texttt{ShapExplainer}. Les données sont représentées par la classe \texttt{CustomerData}.}
+
+\section{Cas d’Utilisation}
+Les cas d'utilisation décrivent les interactions entre les acteurs (utilisateurs) et le système pour atteindre un objectif spécifique.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        actor/.style={
+            rectangle,
+            draw=maincolor,
+            rounded corners=2pt,
+            thick,
+            align=center,
+            text width=3.4cm,
+            inner sep=4pt,
+            fill=backcolour
+        },
+        usecase/.style={
+            ellipse,
+            draw=maincolor,
+            thick,
+            align=center,
+            minimum width=3.5cm,
+            minimum height=1.2cm,
+            fill=backcolour
+        },
+        connector/.style={-, thick, draw=maincolor}
+    ]
+        \node[actor] (analyst) at (-5,0) {Analyste m\'etier\\Manager marketing};
+        \node[actor] (agent) at (-5,-3.5) {Agent service client\\Responsable de compte};
+
+        \node[usecase] (global) at (1,0) {Analyser le churn global};
+        \node[usecase] (diagnosis) at (1,-3.5) {Diagnostiquer un client};
+
+        \node[actor] (app) at (6,-1.75) {Application Streamlit};
+
+        \draw[connector] (analyst) -- (global);
+        \draw[connector] (agent) -- (diagnosis);
+        \draw[connector] (global) -- (app);
+        \draw[connector] (diagnosis) -- (app);
+    \end{tikzpicture}
+    \caption{Diagramme de cas d'utilisation principal.}
+    \label{fig:use_case_diagram}
+\end{figure}
+
+\subsection{UC-01 : Analyser le Churn Global}
+\begin{itemize}
+    \item \textbf{Acteur} : Analyste Métier, Manager Marketing.
+    \item \textbf{Description} : L'utilisateur souhaite avoir une vue d'ensemble des tendances de churn au sein de l'entreprise.
+    \item \textbf{Scénario Nominal} :
+    \begin{enumerate}
+        \item L'utilisateur accède à la page "Global Analytics Dashboard".
+        \item Le système affiche les KPIs par défaut et les graphiques pour l'ensemble de la base de clients.
+        \item L'utilisateur applique un filtre (par exemple, "Contrat = Mois par mois").
+        \item Le système met à jour instantanément tous les KPIs et graphiques pour ne refléter que les clients correspondant au filtre.
+        \item L'utilisateur analyse les visualisations pour identifier des tendances (par exemple, "le taux de churn est de 45\% pour les contrats mensuels").
+    \end{enumerate}
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        node distance=1.6cm,
+        process/.style={
+            rectangle,
+            draw=maincolor,
+            rounded corners=2pt,
+            thick,
+            align=center,
+            text width=5.4cm,
+            inner sep=6pt,
+            fill=backcolour
+        },
+        startstop/.style={
+            circle,
+            draw=maincolor,
+            thick,
+            minimum size=0.9cm,
+            fill=backcolour
+        },
+        connector/.style={->, >=stealth, thick, draw=maincolor}
+    ]
+        \node[startstop] (start) {\textbf{Début}};
+        \node[process, below of=start] (open) {L'utilisateur ouvre la page Global Analytics Dashboard};
+        \node[process, below of=open] (load) {Le système charge les données agrégées et affiche les KPIs par défaut};
+        \node[process, below of=load] (filter) {L'utilisateur applique des filtres (contrat, tenure, services, etc.)};
+        \node[process, below of=filter] (update) {Recalcul immédiat des indicateurs et graphiques filtrés};
+        \node[process, below of=update] (analyse) {Analyse des tendances et identification des segments à risque};
+        \node[startstop, below of=analyse] (end) {\textbf{Fin}};
+
+        \draw[connector] (start) -- (open);
+        \draw[connector] (open) -- (load);
+        \draw[connector] (load) -- (filter);
+        \draw[connector] (filter) -- (update);
+        \draw[connector] (update) -- (analyse);
+        \draw[connector] (analyse) -- (end);
+    \end{tikzpicture}
+    \caption{Flux du cas d'utilisation ``Analyser le churn global''.}
+    \label{fig:use_case_global_flow}
+\end{figure}
+
+\subsection{UC-02 : Diagnostiquer un Client Spécifique}
+\begin{itemize}
+    \item \textbf{Acteur} : Agent du Service Client, Responsable de Compte.
+    \item \textbf{Description} : L'utilisateur a besoin de comprendre le risque de churn pour un client particulier et les raisons de ce risque.
+    \item \textbf{Scénario Nominal} :
+    \begin{enumerate}
+        \item L'utilisateur navigue vers la page "Customer Diagnosis".
+        \item Il sélectionne un ID client dans le menu déroulant.
+        \item Le système :
+        \begin{itemize}
+            \item Récupère les données du client.
+            \item Fait une prédiction de churn en utilisant le modèle CatBoost.
+            \item Affiche la probabilité de churn sous forme de jauge.
+            \item Calcule les valeurs SHAP pour cette prédiction.
+            \item Affiche le graphique "force plot" SHAP, détaillant les facteurs de risque et de rétention.
+        \end{itemize}
+        \item L'utilisateur analyse le graphique et identifie que le client est à risque à cause de ses frais mensuels élevés.
+        \item L'utilisateur peut alors engager une action ciblée (par exemple, contacter le client pour lui proposer une offre promotionnelle).
+    \end{enumerate}
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        node distance=1.6cm,
+        process/.style={
+            rectangle,
+            draw=maincolor,
+            rounded corners=2pt,
+            thick,
+            align=center,
+            text width=5.2cm,
+            inner sep=6pt,
+            fill=backcolour
+        },
+        startstop/.style={
+            circle,
+            draw=maincolor,
+            thick,
+            minimum size=0.9cm,
+            fill=backcolour
+        },
+        connector/.style={->, >=stealth, thick, draw=maincolor}
+    ]
+        \node[startstop] (start) {\textbf{Début}};
+        \node[process, below of=start] (open) {L'utilisateur ouvre la page Customer Diagnosis};
+        \node[process, below of=open] (select) {Sélection d'un ID client dans la liste déroulante};
+        \node[process, below of=select] (fetch) {Le système charge les données brutes du client};
+        \node[process, below of=fetch] (predict) {Prédiction du churn avec CatBoostModel};
+        \node[process, below of=predict] (explain) {Calcul des valeurs SHAP et génération des visualisations};
+        \node[process, below of=explain] (display) {Affichage de la probabilité de churn et des facteurs clés};
+        \node[process, below of=display] (decide) {L'utilisateur planifie une action de rétention ciblée};
+        \node[startstop, below of=decide] (end) {\textbf{Fin}};
+
+        \draw[connector] (start) -- (open);
+        \draw[connector] (open) -- (select);
+        \draw[connector] (select) -- (fetch);
+        \draw[connector] (fetch) -- (predict);
+        \draw[connector] (predict) -- (explain);
+        \draw[connector] (explain) -- (display);
+        \draw[connector] (display) -- (decide);
+        \draw[connector] (decide) -- (end);
+    \end{tikzpicture}
+    \caption{Flux du cas d'utilisation ``Diagnostiquer un client spécifique''.}
+    \label{fig:use_case_diagnosis_flow}
+\end{figure}
+
+\section{Règles métier et validations}
+Pour garantir la cohérence du système, plusieurs règles métier encadrent l'exécution des cas d'utilisation :
+\begin{itemize}
+    \item \textbf{Seuils de churn} : Les alertes ne sont déclenchées que lorsque la probabilité dépasse 60\%, afin d'éviter la saturation des équipes.
+    \item \textbf{Historique obligatoire} : Toute action de rétention doit être consignée avant de clore un dossier afin de conserver une traçabilité complète.
+    \item \textbf{Mise à jour des données} : Les prédictions ne sont valables que pour une extraction de données datée de moins de 30 jours ; au-delà, une bannière d'avertissement invite à rafraîchir le jeu de données.
+\end{itemize}
+
+\section{Correspondance besoins-fonctions}
+La Table~\ref{tab:traceabilite_besoins} relie chaque besoin fonctionnel aux éléments de solution implémentés.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{3cm} p{5cm} p{5cm}}
+        	oprule
+        	extbf{Besoin} & \textbf{Fonctionnalité associée} & \textbf{Chapitre de référence} \\
+        \midrule
+        BF-01 & Tableau de bord global & Chapitre~\ref{chap:fonctionnalites} \newline Section ``Tableau de Bord Analytique Global'' \\
+        BF-04 & Diagnostic client & Chapitre~\ref{chap:fonctionnalites} \newline Section ``Outil de Diagnostic Client'' \\
+        BF-05 & Prédiction individuelle & Chapitre~\ref{chap:modelisation_evaluation} \newline Section ``Sélection et entraînement du modèle'' \\
+        BF-06 & Explication de la prédiction & Chapitres~\ref{chap:modelisation_evaluation} et \ref{chap:analyse_fonctionnelle} \\
+        BNF-01 & Optimisation performance & Chapitre~\ref{chap:technologies} \newline Section ``Architecture logicielle'' \\
+        BNF-04 & Accessibilité & Chapitre~\ref{chap:interface_utilisateur} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Traçabilité entre besoins et solution implémentée.}
+    \label{tab:traceabilite_besoins}
+\end{table}

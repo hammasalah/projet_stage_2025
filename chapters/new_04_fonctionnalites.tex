@@ -1,0 +1,54 @@
+\chapter{Fonctionnalités Clés}
+\label{chap:fonctionnalites}
+
+L'application de tableau de bord a été conçue pour être un outil complet et intuitif pour l'analyse du churn. Ce chapitre détaille les fonctionnalités clés qui ont été implémentées pour répondre aux besoins fonctionnels.
+
+\section{Tableau de Bord Analytique Global}
+C'est la page d'accueil de l'application. Elle offre une vue macroscopique de la situation du churn.
+\begin{itemize}
+    \item \textbf{KPIs Dynamiques} : En haut de la page, une série de cartes affiche les indicateurs clés : le nombre total de clients, le taux de churn, l'ancienneté moyenne des clients et les revenus mensuels moyens. Ces indicateurs sont mis à jour dynamiquement en fonction des filtres appliqués.
+    \item \textbf{Filtres Interactifs} : Une barre latérale permet aux utilisateurs de segmenter la base de données clients. Il est possible de filtrer par type de contrat, méthode de paiement, genre, et plusieurs autres variables démographiques ou de service.
+    \item \textbf{Visualisations Riches} : La page présente une variété de graphiques pour explorer les données sous différents angles :
+    \begin{itemize}
+        \item Un \textbf{camembert} pour visualiser la répartition du churn.
+        \item Des \textbf{diagrammes en barres} pour comparer le churn à travers différentes catégories (par exemple, le churn par type de contrat).
+        \item Des \textbf{histogrammes} pour analyser la distribution des variables numériques comme l'ancienneté (\texttt{tenure}) et les frais mensuels (\texttt{MonthlyCharges}) pour les churners et les non-churners.
+    \end{itemize}
+\end{itemize}
+
+\section{Outil de Diagnostic Client}
+Cette section de l'application se concentre sur l'analyse au niveau micro, en fournissant un diagnostic détaillé pour un client individuel.
+\begin{itemize}
+    \item \textbf{Sélection du Client} : Un menu déroulant permet à l'utilisateur de rechercher et de sélectionner n'importe quel client dans la base de données par son ID.
+    \item \textbf{Jauge de Probabilité de Churn} : Une fois un client sélectionné, le modèle de Machine Learning calcule en temps réel sa probabilité de churn. Le résultat est affiché de manière très visuelle à l'aide d'une jauge, avec un code couleur (vert, orange, rouge) pour indiquer le niveau de risque.
+    \item \textbf{Explication de la Prédiction (XAI)} : C'est la fonctionnalité la plus puissante de cette page. Un graphique "force plot" de SHAP est généré pour le client sélectionné. Ce graphique montre :
+    \begin{itemize}
+        \item Les \textbf{facteurs de risque} (en rouge) qui poussent la prédiction vers le "churn".
+        \item Les \textbf{facteurs de rétention} (en bleu) qui poussent la prédiction vers la "non-churn".
+    \end{itemize}
+    La longueur de chaque barre indique l'ampleur de l'impact de la caractéristique, fournissant une explication claire et hiérarchisée de la prédiction du modèle.
+\end{itemize}
+
+\section{Journalisation et suivi des actions}
+Chaque action réalisée par un utilisateur peut être enregistrée pour constituer un historique consultable :
+\begin{itemize}
+    \item \textbf{Notes de suivi} : Ajout d'un commentaire libre après une intervention afin de documenter les actions menées (appel, email, offre proposée).
+    \item \textbf{Statut du client} : Possibilité de qualifier un client comme ``À contacter'', ``En cours'' ou ``Traité'' pour organiser les relances.
+    \item \textbf{Exportation} : Génération d'un fichier CSV permettant de partager les clients à risque et leur statut avec d'autres équipes.
+\end{itemize}
+
+\section{Automatisation et intégrations}
+Pour augmenter l'impact opérationnel, l'application prévoit des intégrations simples :
+\begin{itemize}
+    \item \textbf{Alertes e-mail} : Envoi automatique d'une notification quotidienne listant les cinq clients au risque le plus élevé.
+    \item \textbf{Connecteur CRM} : Export direct vers l'outil CRM interne pour ouvrir un ticket de rétention.
+    \item \textbf{API interne} : Mise à disposition d'un point d'accès REST léger pour que d'autres applications puissent consommer la prédiction de churn.
+\end{itemize}
+
+\section{Accompagnement utilisateur}
+Afin de faciliter l'appropriation de l'outil, plusieurs aides contextuelles sont proposées :
+\begin{itemize}
+    \item \textbf{Guides interactifs} : Bulles d'information affichant la signification de chaque KPI et les actions recommandées.
+    \item \textbf{Centre d'aide} : Page dédiée regroupant FAQ, tutoriels vidéos et lexique.
+    \item \textbf{Mode formation} : Version anonymisée du tableau de bord permettant de former les nouveaux collaborateurs sans exposer de données sensibles.
+\end{itemize}

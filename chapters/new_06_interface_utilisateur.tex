@@ -1,0 +1,65 @@
+\chapter{Interface Utilisateur}
+\label{chap:interface_utilisateur}
+
+Ce chapitre présente les maquettes de l'interface utilisateur (UI) de l'application. Un soin particulier a été apporté à la conception pour assurer une expérience utilisateur (UX) intuitive, informative et esthétiquement agréable.
+
+\section{Page d'Analyse Globale (Global Analytics Dashboard)}
+Cette page est conçue pour donner une vue d'ensemble rapide et complète.
+
+\begin{figure}[H]
+    \centering
+    % Placeholder for Global Analytics Screenshot
+    \fbox{\parbox[c][10cm][c]{15cm}{\centering \Large Capture d'écran de la page d'analyse globale \\ (à insérer ici)}}
+    \caption{Aperçu de la page "Global Analytics Dashboard".}
+    \label{fig:ui_global_analytics}
+\end{figure}
+
+\textit{Description de l'image : La capture d'écran montre une barre latérale à gauche avec des filtres interactifs. La zone principale contient une rangée de cartes KPI en haut, suivie d'une grille de graphiques, incluant un camembert de distribution du churn et des diagrammes en barres comparant le churn sur différentes dimensions.}
+
+\section{Page de Diagnostic Client (Customer Diagnosis)}
+Cette page est axée sur l'analyse d'un seul client à la fois, fournissant des informations exploitables.
+
+\begin{figure}[H]
+    \centering
+    % Placeholder for Customer Diagnosis Screenshot
+    \fbox{\parbox[c][10cm][c]{15cm}{\centering \Large Capture d'écran de la page de diagnostic client \\ (à insérer ici)}}
+    \caption{Aperçu de la page "Customer Diagnosis".}
+    \label{fig:ui_customer_diagnosis}
+\end{figure}
+
+\textit{Description de l'image : La capture d'écran montre un menu déroulant en haut pour sélectionner un client. En dessous, une jauge de risque de churn est affichée de manière proéminente. La partie principale de la page est occupée par le graphique "force plot" SHAP, qui explique visuellement la prédiction.}
+
+\section{Palette de Couleurs et Style}
+Le design s'inspire des tableaux de bord modernes, avec une palette de couleurs sobre et professionnelle.
+\begin{itemize}
+    \item \textbf{Couleur Principale (Accentuation)} : Bleu sarcelle (\#008080)
+    \item \textbf{Arrière-plan} : Gris clair (\#f7fafc)
+    \item \textbf{Texte} : Gris foncé (\#2d3748)
+    \item \textbf{Conteneurs} : Blanc (\#ffffff) avec des ombres portées légères.
+\end{itemize}
+La police "Inter" a été choisie pour sa lisibilité sur les écrans.
+
+\section{Système de design}
+Le design system s'articule autour de composants réutilisables :
+\begin{itemize}
+    \item \textbf{Cartes KPI} : Bloc rectangulaire avec icône, valeur et variation pour faciliter la lecture rapide.
+    \item \textbf{Panneau latéral} : Zone fixe contenant filtres, boutons d'actions et aide contextuelle.
+    \item \textbf{Modales} : Fenêtres superposées utilisées pour la saisie de notes ou l'affichage d'informations complémentaires.
+\end{itemize}
+Chaque composant est documenté avec ses propriétés (couleurs, marges, comportements) afin d'assurer la cohérence visuelle.
+
+\section{Comportement responsive}
+L'interface s'adapte aux différentes résolutions :
+\begin{itemize}
+    \item \textbf{Grand écran ($> 1440$ px)} : Affichage en grille $3 \times 2$ pour les graphiques ; la barre latérale reste déployée.
+    \item \textbf{Écran standard (1024--1440px)} : Passage en grille $2 \times 3$ avec un empilement vertical des cartes KPI.
+    \item \textbf{Tablette} : Les filtres deviennent un panneau accordéon et la visualisation s'effectue sur une colonne unique.
+\end{itemize}
+
+\section{Accessibilité et internationalisation}
+Des efforts particuliers sont menés pour assurer une utilisation inclusive :
+\begin{itemize}
+    \item Contraste vérifié pour chaque combinaison de couleurs.
+    \item Navigation au clavier possible grâce à des raccourcis et à l'ordre logique des éléments.
+    \item Texte traduit en anglais grâce à un fichier de ressources pour faciliter le déploiement dans d'autres pays.
+\end{itemize}
