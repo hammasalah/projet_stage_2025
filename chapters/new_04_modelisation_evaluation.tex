@@ -1,0 +1,56 @@
+\chapter{Mod\'elisation et \'Evaluation}
+\label{chap:modelisation_evaluation}
+
+\section{Approche g\'en\'erale}
+La strat\'egie de mod\'elisation suit un cycle it\'eratif inspir\'e de CRISP-DM : compr\'ehension des donn\'ees, pr\'eparation, mod\'elisation, \'evaluation et d\'eploiement. Les exigences d'interpr\'etabilit\'e ont conditionn\'e le choix des algorithmes et des m\'etriques. Nous avons d'abord pos\'e un mod\`ele de base XGBoost pour disposer d'un rep\`ere de performance avant d'explorer des alternatives plus adapt\'ees aux cat\'egories.
+\begin{enumerate}
+    \item \textbf{D\'efinition du probl\`eme} : Formulation en classification binaire (churn vs non-churn).
+    \item \textbf{Création d'un jeu d'entra\^inement} : Partition stratifi\'ee 70\%/15\%/15\% pour l'entra\^inement, la validation et le test final.
+    \item \textbf{Boucle d'exp\'erimentation} : Comparaison de plusieurs mod\`eles (logistique, Random Forest, XGBoost, CatBoost) au travers d'un protocole reproductible.
+\end{enumerate}
+
+\section{Pipeline de pr\'e-traitement}
+Un pipeline unifi\'e construit avec \texttt{scikit-learn} assure la coh\'erence entre l'entra\^inement et l'inf\'erence :
+\begin{itemize}
+    \item \textbf{Transformation des variables cat\'egorielles} : Encodage binaire pour les variables Yes/No, encodage ordinal pour \texttt{Contract}, encodage one-hot pour les services multiples.
+    \item \textbf{Imputation} : Valeurs manquantes combl\'ees par la m\'ediane (num\'erique) ou la modalit\'e la plus fr\'equente (cat\'egorielle).
+    \item \textbf{Mise \`a l'\'echelle} : Utilisation de \texttt{RobustScaler} sur les variables mon\'etaires afin de r\'eduire l'influence des extr\^emes.
+    \item \textbf{Gestion du d\'es\'equilibre} : Pond\'eration inverse de la classe minoritaire ou recours \`a SMOTE durant l'entra\^inement des mod\`eles lin\'eaires.
+\end{itemize}
+
+\section{S\'election et entra\^inement du mod\`ele}
+Apr\`es plusieurs exp\'eriences, CatBoost a \'et\'e retenu pour sa capacit\'e \`a g\'erer naturellement les cat\'egories et \`a fournir une bonne interpr\'etabilit\'e locale. XGBoost, utilis\'e comme baseline, atteignait une AUC proche mais restait en de\c{c}a en pr\'ecision (0{,}80) et rappel (0{,}68) sur la classe churn, ce qui a motiv\'e la bascule vers CatBoost pour le mod\`ele final.
+\begin{itemize}
+    \item \textbf{Recherche d'hyperparam\`etres} : Exploration par grille sur la profondeur (4--8), le taux d'apprentissage (0,02--0,1) et le nombre d'arbres (500--1\,200). L'optimisation a maximis\'e l'AUC sur la validation.
+    \item \textbf{R\'egularisation} : Utilisation du param\`etre \texttt{l2\_leaf\_reg} pour contr\^oler la complexit\'e et \'eviter le sur-apprentissage.
+    \item \textbf{Persistante du mod\`ele} : Export au format \texttt{joblib} pour garantir un chargement rapide dans l'application Streamlit.
+\end{itemize}
+
+\section{R\'esultats quantitatifs}
+Le tableau ci-dessous synth\'etise les performances sur l'ensemble de test ten\'u \`a l'\'ecart :
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lccc}
+        \toprule
+        \textbf{Mod\`ele} & \textbf{Pr\'ecision} & \textbf{Rappel} & \textbf{AUC ROC} \\
+        \midrule
+        R\'egression logistique & 0{,}79 & 0{,}62 & 0{,}83 \\
+        Random Forest & 0{,}81 & 0{,}67 & 0{,}88 \\
+        CatBoost (final) & \textbf{0{,}83} & \textbf{0{,}72} & \textbf{0{,}91} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Performance des principaux candidats sur l'ensemble de test.}
+    \label{tab:model_performance}
+\end{table}
+
+Pour les besoins m\'etiers, l'accent est mis sur le rappel (capacit\'e \`a identifier les churners). CatBoost offre un compromis satisfaisant entre rappel et pr\'ecision tout en maintenant une courbe ROC \`elev\'ee, surpassant notamment le baseline XGBoost qui plafonnait \`a 0{,}88 d'AUC et 0{,}68 de rappel.
+
+\section{Explicabilit\'e et conformit\'e}
+\begin{itemize}
+    \item \textbf{Importance globale} : Les valeurs SHAP globales confirment l'importance de \texttt{Contract}, \texttt{MonthlyCharges} et \texttt{tenure}.
+    \item \textbf{Explications locales} : Les graphiques SHAP individuels permettent aux analystes d'identifier les leviers d'action personnalis\'es (rabais, changement de formule, contact proactif).
+    \item \textbf{Auditabilit\'e} : Toutes les exp\'eriences d'entra\^inement sont trac\'ees via des notebooks et un fichier \texttt{MLflow-like} (structure CSV) pour assurer la tra\c{c}abilit\'e r\'eglementaire.
+\end{itemize}
+
+\section{Synth\`ese}
+Le pipeline propos\'e permet de d\'eployer un mod\`ele performant, robuste et explicable. Il constitue une base solide pour des am\'eliorations ult\'erieures, notamment l'int\'egration de donn\'ees temps r\'eel et la mise en place d'une surveillance continue en production.

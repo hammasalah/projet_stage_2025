@@ -28,3 +28,27 @@ Cette section de l'application se concentre sur l'analyse au niveau micro, en fo
     \end{itemize}
     La longueur de chaque barre indique l'ampleur de l'impact de la caractéristique, fournissant une explication claire et hiérarchisée de la prédiction du modèle.
 \end{itemize}
+
+\section{Journalisation et suivi des actions}
+Chaque action réalisée par un utilisateur peut être enregistrée pour constituer un historique consultable :
+\begin{itemize}
+    \item \textbf{Notes de suivi} : Ajout d'un commentaire libre après une intervention afin de documenter les actions menées (appel, email, offre proposée).
+    \item \textbf{Statut du client} : Possibilité de qualifier un client comme ``À contacter'', ``En cours'' ou ``Traité'' pour organiser les relances.
+    \item \textbf{Exportation} : Génération d'un fichier CSV permettant de partager les clients à risque et leur statut avec d'autres équipes.
+\end{itemize}
+
+\section{Automatisation et intégrations}
+Pour augmenter l'impact opérationnel, l'application prévoit des intégrations simples :
+\begin{itemize}
+    \item \textbf{Alertes e-mail} : Envoi automatique d'une notification quotidienne listant les cinq clients au risque le plus élevé.
+    \item \textbf{Connecteur CRM} : Export direct vers l'outil CRM interne pour ouvrir un ticket de rétention.
+    \item \textbf{API interne} : Mise à disposition d'un point d'accès REST léger pour que d'autres applications puissent consommer la prédiction de churn.
+\end{itemize}
+
+\section{Accompagnement utilisateur}
+Afin de faciliter l'appropriation de l'outil, plusieurs aides contextuelles sont proposées :
+\begin{itemize}
+    \item \textbf{Guides interactifs} : Bulles d'information affichant la signification de chaque KPI et les actions recommandées.
+    \item \textbf{Centre d'aide} : Page dédiée regroupant FAQ, tutoriels vidéos et lexique.
+    \item \textbf{Mode formation} : Version anonymisée du tableau de bord permettant de former les nouveaux collaborateurs sans exposer de données sensibles.
+\end{itemize}

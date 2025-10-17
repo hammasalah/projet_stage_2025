@@ -1,34 +1,68 @@
 \babel@toc {french}{}\relax 
-\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Contexte du projet}{2}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Objectifs}{2}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Impact Métier}{2}{section.1.3}%
-\contentsline {chapter}{\numberline {2}Besoins Fonctionnels}{3}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introduction}{3}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Liste des Besoins Fonctionnels}{3}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Conclusion}{3}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Technologies Utilisées}{4}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Frontend}{4}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Technologies Principales}{4}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Bibliothèques UI et Utilitaires}{4}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Backend}{4}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Core Technologies}{4}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Caractéristiques Principales}{4}{subsection.3.2.2}%
-\contentsline {chapter}{\numberline {4}Fonctionnalités Clés}{5}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Tableau de Bord Analytique Global}{5}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Outil de Diagnostic Client}{5}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Analyse Fonctionnelle des Cas d’Utilisation}{6}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Diagramme de Classes}{6}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Cas d’Utilisation}{6}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}UC-01 : Analyser le Churn Global}{6}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}UC-02 : Diagnostiquer un Client Spécifique}{7}{subsection.5.2.2}%
-\contentsline {chapter}{\numberline {6}Interface Utilisateur}{8}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Page d'Analyse Globale (Global Analytics Dashboard)}{8}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Page de Diagnostic Client (Customer Diagnosis)}{8}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Palette de Couleurs et Style}{9}{section.6.3}%
-\contentsline {chapter}{\numberline {7}Améliorations Futures}{10}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Enrichissement du Modèle}{10}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Améliorations de l'Application}{10}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Déploiement et MLOps}{10}{section.7.3}%
-\contentsline {chapter}{\numberline {8}Conclusion}{11}{chapter.8}%
-\contentsline {chapter}{\numberline {A}Glossaire}{12}{appendix.A}%
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Contexte du projet}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Objectifs}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Impact Métier}{3}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Méthodologie de projet}{3}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Organisation du rapport}{4}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Besoins Fonctionnels}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introduction}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Liste des Besoins Fonctionnels}{5}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Besoins non fonctionnels}{5}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Personas et scénarios cibles}{6}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Contraintes et hypothèses}{6}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Conclusion}{6}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Analyse des Donn\'ees}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Description du jeu de donn\'ees}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Exploration des variables}{7}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Analyse univari\'ee}{7}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Analyse bivari\'ee}{7}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Qualit\'e et nettoyage des donn\'ees}{7}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Principaux enseignements exploratoires}{8}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Implications pour la mod\'elisation}{8}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Mod\'elisation et \'Evaluation}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Approche g\'en\'erale}{9}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Pipeline de pr\'e-traitement}{9}{section.4.2}%
+\contentsline {section}{\numberline {4.3}S\'election et entra\^inement du mod\`ele}{9}{section.4.3}%
+\contentsline {section}{\numberline {4.4}R\'esultats quantitatifs}{10}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Explicabilit\'e et conformit\'e}{10}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Synth\`ese}{10}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Technologies Utilisées}{11}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Frontend}{11}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Technologies Principales}{11}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Bibliothèques UI et Utilitaires}{11}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}Backend}{11}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Core Technologies}{11}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Caractéristiques Principales}{11}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Architecture logicielle}{12}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Gestion des dépendances et qualité}{12}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Infrastructure et déploiement}{12}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Fonctionnalités Clés}{13}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Tableau de Bord Analytique Global}{13}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Outil de Diagnostic Client}{13}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Journalisation et suivi des actions}{13}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Automatisation et intégrations}{14}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Accompagnement utilisateur}{14}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Analyse Fonctionnelle des Cas d’Utilisation}{15}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Diagramme de Classes}{15}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Cas d’Utilisation}{16}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}UC-01 : Analyser le Churn Global}{16}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}UC-02 : Diagnostiquer un Client Spécifique}{17}{subsection.7.2.2}%
+\contentsline {section}{\numberline {7.3}Règles métier et validations}{18}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Correspondance besoins-fonctions}{18}{section.7.4}%
+\contentsline {chapter}{\numberline {8}Interface Utilisateur}{20}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Page d'Analyse Globale (Global Analytics Dashboard)}{20}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Page de Diagnostic Client (Customer Diagnosis)}{20}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Palette de Couleurs et Style}{21}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Système de design}{21}{section.8.4}%
+\contentsline {section}{\numberline {8.5}Comportement responsive}{22}{section.8.5}%
+\contentsline {section}{\numberline {8.6}Accessibilité et internationalisation}{22}{section.8.6}%
+\contentsline {chapter}{\numberline {9}Améliorations Futures}{23}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Enrichissement du Modèle}{23}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Améliorations de l'Application}{23}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Déploiement et MLOps}{23}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Feuille de route indicative}{24}{section.9.4}%
+\contentsline {section}{\numberline {9.5}Indicateurs de succès}{24}{section.9.5}%
+\contentsline {section}{\numberline {9.6}Risques et plans de mitigation}{24}{section.9.6}%
+\contentsline {chapter}{\numberline {10}Conclusion}{25}{chapter.10}%
+\contentsline {chapter}{\numberline {A}Glossaire}{26}{appendix.A}%

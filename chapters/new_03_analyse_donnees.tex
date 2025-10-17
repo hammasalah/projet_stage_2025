@@ -1,0 +1,55 @@
+\chapter{Analyse des Donn\'ees}
+\label{chap:analyse_donnees}
+
+\section{Description du jeu de donn\'ees}
+Le projet s'appuie sur le jeu de donn\'ees public \textit{Telco Customer Churn} (7\,043 lignes, 21 variables explicatives et une variable cible). Chaque enregistrement correspond \`a un client d'un op\'erateur t\'el\'ecom et capture des informations d'usage, de facturation et de profil.
+\begin{itemize}[label=\textcolor{maincolor}{\textbullet}]
+    \item \textbf{Identifiant Client} : La colonne \texttt{customerID} garantit l'unicit\'e de chaque entr\'ee.
+    \item \textbf{Variables D\'emographiques} : Genre, groupe d'\^age approximatif via l'anciennet\'e (\texttt{tenure}), situation familiale (pr\'esence d'un partenaire ou d'enfants).
+    \item \textbf{Services Souscrits} : Options internet (DSL, Fibre), services suppl\'ementaires (s\'ecurit\'e en ligne, stockage, t\'elit\'ephonie), support technique.
+    \item \textbf{Facturation} : Type de contrat, mode de paiement, frais mensuels (\texttt{MonthlyCharges}) et frais cumul\'es (\texttt{TotalCharges}).
+    \item \textbf{Variable Cible} : \texttt{Churn} (\textit{Yes/No}), indiquant si le client a quitt\'e l'op\'erateur durant la p\'eriode d'observation.
+\end{itemize}
+
+\section{Exploration des variables}
+\subsection{Analyse univari\'ee}
+La premi\`ere exploration met en \'evidence un taux de churn global de 26,5\%. Les variables num\'eriques pr\'esentent des distributions contrast\'ees :
+\begin{itemize}
+    \item \texttt{tenure} suit une distribution bimodale, refl\'etant deux grandes cohortes de clients (nouveaux et fid\`eles).
+    \item \texttt{MonthlyCharges} est fortement asym\'etrique : la fibre optique g\'en\`ere des frais sup\'erieurs et s'accompagne d'un taux de churn plus \'elev\'e.
+    \item \texttt{TotalCharges} contient quelques valeurs manquantes pour les clients nouvellement acquis, qui doivent \^etre imput\'ees.
+\end{itemize}
+Du c\^ot\'e des variables qualitatives, le churn est nettement plus fort pour les contrats \`a dur\'ee mensuelle et pour les paiements automatiques par carte de cr\'edit.
+
+\subsection{Analyse bivari\'ee}
+\begin{itemize}
+    \item Les matrices de corr\'elation montrent que \texttt{MonthlyCharges} et \texttt{TotalCharges} sont corr\'el\'ees (0,65), mais apportent des informations compl\'ementaires (revenu courant vs cumul\'e).
+    \item Les courbes de densit\'e mettent en \'evidence que les clients \`a haut risque combinent une faible anciennet\'e et des frais mensuels sup\'erieurs \`a 80\,\$.
+    \item Les analyses crois\'ees indiquent que la pr\'esence de services additionnels (t\'el\'evision en streaming ou s\'ecurit\'e) r\'eduit le churn lorsqu'ils sont group\'es avec un contrat annuel.
+\end{itemize}
+
+\section{Qualit\'e et nettoyage des donn\'ees}
+Un protocole de pr\'e-traitement a \'et\'e appliqu\'e pour fiabiliser les donn\'ees avant la mod\'elisation :
+\begin{enumerate}
+    \item \textbf{Gestion des valeurs manquantes} : Imputation des \texttt{TotalCharges} \`a partir de la combinaison $\texttt{tenure} \times \texttt{MonthlyCharges}$, puis v\'erification qualitative sur \`un \'echantillon.
+    \item \textbf{Homog\'en\'eisation des cat\'egories} : Suppression des espaces superflus dans les libell\'es (\textit{No internet service} $\Rightarrow$ \textit{No}).
+    \item \textbf{Encodage adapt\'e} : Utilisation d'un encodage binaire pour les variables binaires et d'un encodage cible pour certaines cat\'egories multivalu\'ees sensibles \`a l'ordre (type de contrat).
+    \item \textbf{Mise \`a l'\'echelle} : Normalisation des variables num\'eriques via un scaler robuste afin de limiter l'impact des valeurs extr\^emes.
+\end{enumerate}
+
+\section{Principaux enseignements exploratoires}
+\begin{itemize}[label=\textcolor{maincolor}{\textbullet}]
+    \item Les clients \`a contrat mensuel repr\'esentent 87\% des d\'eparts observ\'es, confirmant l'importance des offres d'engagement.
+    \item Les souscriptions \`a plusieurs services (internet + t\'elit\'ephonie + streaming) sont un facteur de fid\'elit\'e : le churn y chute \`a 9\%.
+    \item Les clients senior (65+ ans) sont plus sensibles aux hausses de prix que les nouveaux clients jeunes, sugg\'erant des strat\'egies de tarification diff\'erenci\'ees.
+    \item Les r\'egions urbaines \`a forte densit\'e (proxy par le code postal) montrent un churn sup\'erieur de 5 points, possiblement en raison d'une concurrence accrue.
+\end{itemize}
+
+\section{Implications pour la mod\'elisation}
+Les observations pr\'ec\'edentes guident la conception du pipeline de donn\'ees :
+\begin{itemize}
+    \item Prioriser les variables de facturation et de type de contrat dans la s\'election de features.
+    \item Capturer les interactions entre services souscrits via des variables crois\'ees (par exemple, $\texttt{StreamingTV} \times \texttt{Contract}$).
+    \item Int\'egrer des indicateurs de dur\'ee de relation (\texttt{tenure} cat\'egoris\'ee) pour mod\'eliser les \'etapes de vie du client.
+    \item Conserver une trace des pr\'e-traitements pour garantir la reproductibilit\'e entre l'entra\^inement et l'inf\'erence en production.
+\end{itemize}

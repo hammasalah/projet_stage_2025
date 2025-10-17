@@ -35,3 +35,25 @@ Le backend est responsable du traitement des données, de l'entraînement du mod
     \item \textbf{API de Prédiction} : Bien qu'il ne s'agisse pas d'une API REST formelle, la structure du code permet d'appeler une fonction qui prend les données d'un client en entrée et retourne une prédiction de churn et une explication SHAP.
     \item \textbf{Traitement des Données en Temps Réel} : Le backend applique les mêmes étapes de prétraitement (encodage, mise à l'échelle) aux données du client sélectionné avant de les passer au modèle.
 \end{itemize}
+
+\section{Architecture logicielle}
+Le projet est organisé en modules Python distincts pour favoriser la lisibilité et la réutilisabilité :
+\begin{itemize}
+    \item \texttt{train.py} encapsule le pipeline d'entraînement et de sauvegarde du modèle.
+    \item \texttt{tuning.py} centralise les expérimentations d'hyperparamètres.
+    \item \texttt{app.py} constitue le point d'entrée Streamlit ; il orchestre les différentes pages et gère la session utilisateur.
+    \item \texttt{global\_analytics\_page.py} et \texttt{customer\_diagnosis\_page.py} séparent les responsabilités entre la vue macro et la vue micro.
+\end{itemize}
+Cette séparation permet de tester chaque composant individuellement et de limiter les effets de bord lors des évolutions.
+
+\section{Gestion des dépendances et qualité}
+Les dépendances sont listées dans \texttt{requirements.txt} et reflètent le minimum nécessaire pour exécuter l'application. Un script d'installation simplifié garantit la reproductibilité de l'environnement. Par ailleurs, un formatage cohérent (\texttt{black}) et une analyse statique (\texttt{ruff}) sont recommandés pour maintenir un code propre. Des tests unitaires ciblant les fonctions critiques (prétraitement, prédiction) complètent le dispositif de qualité.
+
+\section{Infrastructure et déploiement}
+L'application peut être déployée sous trois scénarios :
+\begin{enumerate}
+    \item \textbf{Poste analyste} : Exécution locale pour les explorations individuelles ou les démonstrations.
+    \item \textbf{Serveur interne} : Hébergement sur un serveur Windows ou Linux avec reverse proxy (Nginx) afin de partager l'accès au sein de l'entreprise.
+    \item \textbf{Cloud managé} : Conteneurisation via Docker et déploiement sur Azure App Service ou AWS Elastic Beanstalk pour bénéficier d'une montée en charge automatique.
+\end{enumerate}
+Dans tous les cas, le stockage du modèle et des données est externalisé dans le dossier \texttt{models/} pour faciliter les mises à jour sans redéployer l'application entière.

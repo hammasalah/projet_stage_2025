@@ -24,3 +24,26 @@ Bien que le projet actuel fournisse une solution robuste et fonctionnelle, plusi
     \item \textbf{Monitoring du Modèle} : Déployer des outils de monitoring pour suivre les performances du modèle en production et détecter toute dérive (concept drift ou data drift) qui pourrait dégrader sa précision.
     \item \textbf{Tests A/B} : Intégrer un framework de test A/B pour comparer l'efficacité de différentes stratégies de rétention ou même de différents modèles de prédiction sur des sous-groupes de clients.
 \end{itemize}
+
+\section{Feuille de route indicative}
+\begin{description}
+    \item[Phase 1 (T0--T+3 mois)] Industrialisation du pipeline existant, automatisation des rapports et mise en place d'un premier monitoring basique.
+    \item[Phase 2 (T+3--T+6 mois)] Intégration au CRM, ajout de la segmentation automatique et lancement du mode ``What-If'' pour les simulations.
+    \item[Phase 3 (T+6--T+12 mois)] Passage en production cloud, supervision temps réel et lancement d'une stratégie omnicanale de rétention pilotée par le modèle.
+\end{description}
+
+\section{Indicateurs de succès}
+Pour évaluer l'impact des améliorations, nous proposons une batterie d'indicateurs :
+\begin{itemize}
+    \item \textbf{Taux de churn observé} avant/après déploiement des actions ciblées.
+    \item \textbf{Temps moyen de traitement} d'un dossier client à risque.
+    \item \textbf{Adoption de l'outil} : nombre d'utilisateurs actifs hebdomadaires et taux de complétion des notes de suivi.
+    \item \textbf{Stabilité du modèle} : suivi de l'AUC et du rappel dans le temps, contrastés avec les alertes de dérive.
+\end{itemize}
+
+\section{Risques et plans de mitigation}
+\begin{itemize}
+    \item \textbf{Données obsolètes} : mettre en place une alerte automatique lorsque la date de dernière extraction dépasse un seuil défini.
+    \item \textbf{Résistance au changement} : organiser des ateliers de co-conception et des formations personnalisées pour les équipes métier.
+    \item \textbf{Surcharge opérationnelle} : prioriser les clients à forte valeur via un score composite (valeur vie + probabilité de churn).
+\end{itemize}

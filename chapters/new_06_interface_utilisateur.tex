@@ -38,3 +38,28 @@ Le design s'inspire des tableaux de bord modernes, avec une palette de couleurs 
     \item \textbf{Conteneurs} : Blanc (\#ffffff) avec des ombres portées légères.
 \end{itemize}
 La police "Inter" a été choisie pour sa lisibilité sur les écrans.
+
+\section{Système de design}
+Le design system s'articule autour de composants réutilisables :
+\begin{itemize}
+    \item \textbf{Cartes KPI} : Bloc rectangulaire avec icône, valeur et variation pour faciliter la lecture rapide.
+    \item \textbf{Panneau latéral} : Zone fixe contenant filtres, boutons d'actions et aide contextuelle.
+    \item \textbf{Modales} : Fenêtres superposées utilisées pour la saisie de notes ou l'affichage d'informations complémentaires.
+\end{itemize}
+Chaque composant est documenté avec ses propriétés (couleurs, marges, comportements) afin d'assurer la cohérence visuelle.
+
+\section{Comportement responsive}
+L'interface s'adapte aux différentes résolutions :
+\begin{itemize}
+    \item \textbf{Grand écran ($> 1440$ px)} : Affichage en grille $3 \times 2$ pour les graphiques ; la barre latérale reste déployée.
+    \item \textbf{Écran standard (1024--1440px)} : Passage en grille $2 \times 3$ avec un empilement vertical des cartes KPI.
+    \item \textbf{Tablette} : Les filtres deviennent un panneau accordéon et la visualisation s'effectue sur une colonne unique.
+\end{itemize}
+
+\section{Accessibilité et internationalisation}
+Des efforts particuliers sont menés pour assurer une utilisation inclusive :
+\begin{itemize}
+    \item Contraste vérifié pour chaque combinaison de couleurs.
+    \item Navigation au clavier possible grâce à des raccourcis et à l'ordre logique des éléments.
+    \item Texte traduit en anglais grâce à un fichier de ressources pour faciliter le déploiement dans d'autres pays.
+\end{itemize}
