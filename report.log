@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.15)  17 OCT 2025 15:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.15)  17 OCT 2025 21:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -521,214 +521,62 @@ Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
 \mult@nat@firstbox=\box108
 \colbreak@box=\box109
 \mc@col@check@num=\count332
-)) (D:\prgrm_files\miktex\tex/latex/minitoc\minitoc.sty
-Package: minitoc 2018/07/12 v62 Package minitoc
- (D:\prgrm_files\miktex\tex/latex/minitoc\mtcmess.sty
-Package: mtcmess 2006/03/14
-)
-Package minitoc Info: I0001
-(minitoc)             *** minitoc package, version 62 ***.
-\tf@mtc=\write3
-\mtcindent=\skip77
-\mtcskipamount=\skip78
-Package minitoc Info: I0005
-(minitoc)             compatible with hyperref.
-Package minitoc Info: I0023
-(minitoc)             part level macros available.
-Package minitoc Info: I0003
-(minitoc)             chapter level macros available.
-\mtc@toks=\toks36
-\mtc@strutbox=\box110
-\mtc@hstrutbox=\box111
-Package minitoc Info: I0002
-(minitoc)             Autoconfiguration of extensions.
-\openout3 = `report.mtc0'.
-
-\openout3 = `report.mtc'.
-
- (report.mtc0)
-Package minitoc Info: I0012
-(minitoc)             Long extensions (Unix-like) will be used.
-Package minitoc Info: I0031
-(minitoc)             ==> this version is configured for UNIX-like 
-(minitoc)                 (long extensions) file names.
-\openout3 = `report.mtc'.
-
-\openout3 = `report.mtc0'.
-
-\c@mtc=\count333
-\c@minitocdepth=\count334
-\c@ptc=\count335
-\c@parttocdepth=\count336
-\ptcindent=\skip79
-Package minitoc Info: I0010
-(minitoc)             The english language is selected.
-(minitoc)              on input line 4910.
- (D:\prgrm_files\miktex\tex/latex/minitoc\english.mld
-File: english.mld 2006/01/13
-) (D:\prgrm_files\miktex\tex/latex/minitoc\english.mld
-File: english.mld 2006/01/13
 )) (D:\prgrm_files\miktex\tex/latex/lipsum\lipsum.sty (D:\prgrm_files\miktex\tex/latex/l3packages/l3keys2e\l3keys2e.sty (D:\prgrm_files\miktex\tex/latex/l3kernel\expl3.sty
 Package: expl3 2024-01-04 L3 programming layer (loader) 
  (D:\prgrm_files\miktex\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count337
-\l__pdf_internal_box=\box112
+\l__color_backend_stack_int=\count333
+\l__pdf_internal_box=\box110
 ))
 Package: l3keys2e 2023-10-10 LaTeX2e option processing using LaTeX3 keys
 )
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-\g__lipsum_par_int=\count338
-\l__lipsum_a_int=\count339
-\l__lipsum_b_int=\count340
+\g__lipsum_par_int=\count334
+\l__lipsum_a_int=\count335
+\l__lipsum_b_int=\count336
  (D:\prgrm_files\miktex\tex/latex/lipsum\lipsum.ltd.tex))
-
-d:/all-projects/ML-PROJECTS/projet_stage_2025/report.tex:45: Package minitoc Error: E0009
-(minitoc)                \mtcsetdepth has a wrong first argument 
-(minitoc)                (chapter). 
-(minitoc)                It should be a mini-table type 
-(minitoc)                (parttoc...sectlot).
-
-See the minitoc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.45 \mtcsetdepth{chapter}{2}
-                             
-Correct the source code. 
-Type <return> and rerun LaTeX
-
-
-d:/all-projects/ML-PROJECTS/projet_stage_2025/report.tex:45: Package minitoc Error: E0010
-(minitoc)                \mtcsetdepth: Illegal type of table (chapter).
-
-See the minitoc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.45 \mtcsetdepth{chapter}{2}
-                             
-Correct the source code. 
-Type <return> and rerun LaTeX
-
-
-d:/all-projects/ML-PROJECTS/projet_stage_2025/report.tex:46: Package minitoc Error: E0009
-(minitoc)                \mtcsetdepth has a wrong first argument 
-(minitoc)                (section). 
-(minitoc)                It should be a mini-table type 
-(minitoc)                (parttoc...sectlot).
-
-See the minitoc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.46 \mtcsetdepth{section}{2}
-                             
-Correct the source code. 
-Type <return> and rerun LaTeX
-
-
-d:/all-projects/ML-PROJECTS/projet_stage_2025/report.tex:46: Package minitoc Error: E0010
-(minitoc)                \mtcsetdepth: Illegal type of table (section).
-
-See the minitoc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.46 \mtcsetdepth{section}{2}
-                             
-Correct the source code. 
-Type <return> and rerun LaTeX
-
-
-d:/all-projects/ML-PROJECTS/projet_stage_2025/report.tex:47: Package minitoc Error: E0009
-(minitoc)                \mtcsetdepth has a wrong first argument 
-(minitoc)                (subsection). 
-(minitoc)                It should be a mini-table type 
-(minitoc)                (parttoc...sectlot).
-
-See the minitoc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.47 \mtcsetdepth{subsection}{2}
-                                
-Correct the source code. 
-Type <return> and rerun LaTeX
-
-
-d:/all-projects/ML-PROJECTS/projet_stage_2025/report.tex:47: Package minitoc Error: E0010
-(minitoc)                \mtcsetdepth: Illegal type of table (subsection).
-
-See the minitoc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.47 \mtcsetdepth{subsection}{2}
-                                
-Correct the source code. 
-Type <return> and rerun LaTeX
-
-d:/all-projects/ML-PROJECTS/projet_stage_2025/report.tex:48: Undefined control sequence.
-l.48 \dosecttoc
-               
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-d:/all-projects/ML-PROJECTS/projet_stage_2025/report.tex:49: Undefined control sequence.
-l.49 \dosubsecttoc
-                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-Package hyperref Info: Option `colorlinks' set `true' on input line 97.
+Package hyperref Info: Option `colorlinks' set `true' on input line 90.
 Package french3.ldf Info: Setting StandardItemizeEnv=true for
 (french3.ldf)             compatibility with enumitem package,
-(french3.ldf)             reported on input line 100.
+(french3.ldf)             reported on input line 93.
 Package french3.ldf Info: Setting StandardEnumerateEnv=true for
 (french3.ldf)             compatibility with enumitem package,
-(french3.ldf)             reported on input line 100.
-No file report.aux.
+(french3.ldf)             reported on input line 93.
+ (report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Info: Redefining \degres on input line 100.
-(D:\prgrm_files\miktex\tex/context/base/mkii\supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Info: Redefining \degres on input line 93.
+ (D:\prgrm_files\miktex\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count341
+\scratchcounter=\count337
 \scratchdimen=\dimen271
-\scratchbox=\box113
-\nofMPsegments=\count342
-\nofMParguments=\count343
-\everyMPshowfont=\toks37
-\MPscratchCnt=\count344
+\scratchbox=\box111
+\nofMPsegments=\count338
+\nofMParguments=\count339
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count340
 \MPscratchDim=\dimen272
-\MPnumerator=\count345
-\makeMPintoPDFobject=\count346
-\everyMPtoPDFconversion=\toks38
+\MPnumerator=\count341
+\makeMPintoPDFobject=\count342
+\everyMPtoPDFconversion=\toks37
 ) (D:\prgrm_files\miktex\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -777,62 +625,43 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 100.
-\@outlinefile=\write4
-\openout4 = `report.out'.
+Package hyperref Info: Link coloring ON on input line 93.
+ (report.out) (report.out)
+\@outlinefile=\write3
+\openout3 = `report.out'.
 
-\c@lstlisting=\count347
-Package minitoc(hints) Info: I0049
-(minitoc(hints))             ==> You requested the hints option. 
-(minitoc(hints))             Some hints are eventually given below.
-
-
-Package minitoc(hints) Warning: W0099
-(minitoc(hints))                --- The titlesec package is loaded. 
-(minitoc(hints))                It is incompatible 
-(minitoc(hints))                with the minitoc package.
-
-LaTeX Font Info:    Trying to load font information for U+msa on input line 123.
-(D:\prgrm_files\miktex\tex/latex/amsfonts\umsa.fd
+\c@lstlisting=\count343
+LaTeX Font Info:    Trying to load font information for U+msa on input line 116.
+ (D:\prgrm_files\miktex\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 123.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 116.
  (D:\prgrm_files\miktex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/moame/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-No file report.toc.
-\tf@toc=\write5
-\openout5 = `report.toc'.
-
+{C:/Users/moame/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (chapters/01_introduction.tex
+Chapitre 1.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.137 \newpage
-               [1
+l.26 \end{itemize}
+                   [1
 
-] (chapters/01_introduction.tex
-Chapitre 1.
-\openout3 = `report.mtc'.
+]) [2] (report.toc)
+\tf@toc=\write4
+\openout4 = `report.toc'.
 
-\openout3 = `report.mtc'.
+ [3
 
-(report.mtc1) [2
-
-]) (chapters/02_data_exploration.tex [3]
+] (chapters/02_data_exploration.tex
 Chapitre 2.
-\openout3 = `report.mtc'.
-
-\openout3 = `report.mtc'.
-
-(report.mtc2)
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 10.
- (D:\prgrm_files\miktex\tex/latex/base\t1cmtt.fd
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 9.
+(D:\prgrm_files\miktex\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-Overfull \hbox (62.0254pt too wide) in paragraph at lines 18--19
+Overfull \hbox (62.0254pt too wide) in paragraph at lines 17--18
 []\T1/cmtt/m/n/10.95 PhoneService\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 MultipleLines\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 InternetService\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 OnlineSecurity\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 OnlineBackup\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 DeviceProtection\T1/cmr/m/n/10.95 ,
  []
 
@@ -840,111 +669,62 @@ Overfull \hbox (62.0254pt too wide) in paragraph at lines 18--19
 
 ]) (chapters/03_modeling.tex [5]
 Chapitre 3.
-\openout3 = `report.mtc'.
 
-\openout3 = `report.mtc'.
-
-(report.mtc3)
-Overfull \hbox (103.52751pt too wide) in paragraph at lines 21--22
+Overfull \hbox (103.52751pt too wide) in paragraph at lines 20--21
 []\T1/cmr/bx/n/10.95 Sauvegarde du mo-dèle \T1/cmr/m/n/10.95 : Une fois en-traîné, le mo-dèle a été sau-ve-gardé dans un fi-chier \T1/cmtt/m/n/10.95 catboost_churn_model.joblib
  []
 
 (D:\prgrm_files\miktex\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 24.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 23.
  [6
 
-] [7]) (chapters/04_xai.tex [8]
+]) (chapters/04_xai.tex [7]
 Chapitre 4.
-\openout3 = `report.mtc'.
+[8
 
-\openout3 = `report.mtc'.
-
-(report.mtc4) [9
-
-]) (chapters/05_application.tex [10]
+]) (chapters/05_application.tex [9]
 Chapitre 5.
-\openout3 = `report.mtc'.
-
-\openout3 = `report.mtc'.
-
-(report.mtc5) [11
+[10
 
 ] (D:\prgrm_files\miktex\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (D:\prgrm_files\miktex\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-Overfull \hbox (51.22295pt too wide) in paragraph at lines 59--60
+Overfull \hbox (51.22295pt too wide) in paragraph at lines 58--59
 []\T1/cmr/m/n/10.95 Créer un en-vi-ron-ne-ment vir-tuel et ins-tal-ler les dé-pen-dances re-quises lis-tées dans le fi-chier \T1/cmtt/m/n/10.95 requirements.txt\T1/cmr/m/n/10.95 . 
  []
 
-) (chapters/06_conclusion.tex [12]
+) (chapters/06_conclusion.tex [11]
 Chapitre 6.
-\openout3 = `report.mtc'.
+[12
 
-\openout3 = `report.mtc'.
-
-(report.mtc6) [13
-
-]) (chapters/07_appendix.tex [14]
+]) (chapters/07_appendix.tex [13]
 Annexe A.
-\openout3 = `report.mtc'.
+[14
 
-\openout3 = `report.mtc'.
-
-(report.mtc7) [15
-
-])
-Package minitoc Info: I0009
-(minitoc)             Listing minitoc auxiliary files. 
-(minitoc)             Creating the report.maf file.
-\openout3 = `report.maf'.
-
-
-
-Package minitoc(hints) Warning: W0059
-(minitoc(hints))                You have used \minitoc, 
-(minitoc(hints))                but not \dominitoc.
-
-Package minitoc(hints) Info: I0053
-(minitoc(hints))             You have loaded the float package; 
-(minitoc(hints))             please be aware that the minitoc package 
-(minitoc(hints))             facilities can not be used for new types 
-(minitoc(hints))             of floats defined by the float package.
-
-Package minitoc(hints) Warning: W0024
-(minitoc(hints))                Some hints have been written 
-(minitoc(hints))                in the report.log file.
-
-[16] (report.aux)
+]) [15] (report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-Package rerunfilecheck Warning: File `report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `report.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  88A1A0F59E254491786A6F1CFF4ADDF0;7982.
+Package rerunfilecheck Info: File `report.out' has not changed.
+(rerunfilecheck)             Checksum: 88A1A0F59E254491786A6F1CFF4ADDF0;7982.
  ) 
 Here is how much of TeX's memory you used:
- 20483 strings out of 474486
- 327265 string characters out of 5754541
- 2251542 words of memory out of 5000000
- 42288 multiletter control sequences out of 15000+600000
- 574770 words of font info for 70 fonts, out of 8000000 for 9000
+ 18475 strings out of 474486
+ 293687 string characters out of 5754541
+ 2271542 words of memory out of 5000000
+ 40309 multiletter control sequences out of 15000+600000
+ 576934 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,12n,96p,879b,2225s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1200.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk>
-Output written on report.pdf (17 pages, 279121 bytes).
+ <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1200.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk>
+Output written on report.pdf (16 pages, 261067 bytes).
 PDF statistics:
- 925 PDF objects out of 1000 (max. 8388607)
- 162 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 949 PDF objects out of 1000 (max. 8388607)
+ 161 named destinations out of 1000 (max. 500000)
+ 345 words of extra memory for PDF output out of 10000 (max. 10000000)
 
