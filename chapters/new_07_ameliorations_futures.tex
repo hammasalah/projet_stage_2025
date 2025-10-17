@@ -1,0 +1,26 @@
+\chapter{Améliorations Futures}
+\label{chap:ameliorations_futures}
+
+Bien que le projet actuel fournisse une solution robuste et fonctionnelle, plusieurs pistes d'amélioration peuvent être explorées pour augmenter sa valeur et ses capacités.
+
+\section{Enrichissement du Modèle}
+\begin{itemize}
+    \item \textbf{Ingénierie de Caractéristiques Avancée} : Créer de nouvelles caractéristiques (features) en combinant les variables existantes. Par exemple, un ratio \texttt{MonthlyCharges / tenure} pourrait capturer une notion de "valeur perçue" par le client.
+    \item \textbf{Intégration de Données Temporelles} : Le modèle actuel est statique. Une amélioration majeure serait d'intégrer des données sur l'historique du client (par exemple, l'évolution de sa consommation, le nombre d'appels au support sur les 6 derniers mois). Des modèles comme les RNN ou les LSTMs pourraient capturer ces dynamiques temporelles.
+    \item \textbf{Analyse de Survie} : Au lieu de prédire \textit{si} un client va churner, utiliser des modèles d'analyse de survie pour prédire \textit{quand} il est le plus susceptible de le faire. Cela permettrait de mieux prioriser les actions de rétention.
+    \item \textbf{Analyse de Texte (NLP)} : Intégrer des données non structurées comme les commentaires des clients ou les transcriptions d'appels. Des techniques de NLP pourraient extraire des sentiments ou des sujets d'insatisfaction qui seraient des prédicteurs puissants du churn.
+\end{itemize}
+
+\section{Améliorations de l'Application}
+\begin{itemize}
+    \item \textbf{Analyse "What-If"} : Ajouter une fonctionnalité de simulation dans le tableau de bord. Un manager pourrait ainsi tester des scénarios, par exemple : "Comment la probabilité de churn de ce client changerait-elle si nous lui offrions le support technique gratuitement ?".
+    \item \textbf{Segmentation Automatique des Clients} : Implémenter un algorithme de clustering (par exemple, K-Means) pour regrouper automatiquement les clients en segments homogènes (par exemple, "clients à haut risque et à haute valeur", "nouveaux clients insatisfaits"). Des stratégies de rétention pourraient ensuite être adaptées à chaque segment.
+    \item \textbf{Tableau de Bord de Suivi des Actions} : Ajouter une section où les équipes peuvent consigner les actions de rétention entreprises pour chaque client à risque et suivre leur efficacité.
+\end{itemize}
+
+\section{Déploiement et MLOps}
+\begin{itemize}
+    \item \textbf{Pipeline de Ré-entraînement Automatisé} : Mettre en place un pipeline MLOps complet pour que le modèle soit automatiquement ré-entraîné à intervalles réguliers avec les nouvelles données, garantissant qu'il ne devienne pas obsolète.
+    \item \textbf{Monitoring du Modèle} : Déployer des outils de monitoring pour suivre les performances du modèle en production et détecter toute dérive (concept drift ou data drift) qui pourrait dégrader sa précision.
+    \item \textbf{Tests A/B} : Intégrer un framework de test A/B pour comparer l'efficacité de différentes stratégies de rétention ou même de différents modèles de prédiction sur des sous-groupes de clients.
+\end{itemize}

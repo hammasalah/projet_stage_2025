@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.15)  17 OCT 2025 21:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.15)  17 OCT 2025 22:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -640,73 +640,59 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 116.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/moame/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (chapters/01_introduction.tex
-Chapitre 1.
+{C:/Users/moame/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (report.toc)
+\tf@toc=\write4
+\openout4 = `report.toc'.
+
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.26 \end{itemize}
-                   [1
+l.130 \newpage
+               [1
 
-]) [2] (report.toc [3
+] (chapters/new_01_introduction.tex
+Chapitre 1.
+) (chapters/new_02_besoins_fonctionnels.tex [2
 
-])
-\tf@toc=\write4
-\openout4 = `report.toc'.
-
- [4] (chapters/02_data_exploration.tex
+]
 Chapitre 2.
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 9.
+) (chapters/new_03_technologies.tex [3
+
+]
+Chapitre 3.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 34.
 (D:\prgrm_files\miktex\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
-Overfull \hbox (62.0254pt too wide) in paragraph at lines 17--18
-[]\T1/cmtt/m/n/10.95 PhoneService\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 MultipleLines\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 InternetService\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 OnlineSecurity\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 OnlineBackup\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 DeviceProtection\T1/cmr/m/n/10.95 ,
- []
+)) (chapters/new_04_fonctionnalites.tex [4
 
-[5
-
-]) (chapters/03_modeling.tex [6]
-Chapitre 3.
-
-Overfull \hbox (103.52751pt too wide) in paragraph at lines 20--21
-[]\T1/cmr/bx/n/10.95 Sauvegarde du mo-dèle \T1/cmr/m/n/10.95 : Une fois en-traîné, le mo-dèle a été sau-ve-gardé dans un fi-chier \T1/cmtt/m/n/10.95 catboost_churn_model.joblib
- []
-
-(D:\prgrm_files\miktex\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2023/02/27 1.9 listings language file
-)
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 23.
- [7
-
-]) (chapters/04_xai.tex [8]
+]
 Chapitre 4.
-[9
+) (chapters/new_05_analyse_fonctionnelle.tex [5
 
-]) (chapters/05_application.tex [10]
+]
 Chapitre 5.
-[11
 
-] (D:\prgrm_files\miktex\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2023/02/27 1.9 listings language file
-) (D:\prgrm_files\miktex\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2023/02/27 1.9 listings language file
-)
-Overfull \hbox (51.22295pt too wide) in paragraph at lines 58--59
-[]\T1/cmr/m/n/10.95 Créer un en-vi-ron-ne-ment vir-tuel et ins-tal-ler les dé-pen-dances re-quises lis-tées dans le fi-chier \T1/cmtt/m/n/10.95 requirements.txt\T1/cmr/m/n/10.95 . 
+Overfull \hbox (0.55157pt too wide) in paragraph at lines 1--1
+|\T1/cmr/bx/n/24.88 Analyse Fonc-tion-nelle des Cas d'Uti-li-sa-tion| 
  []
 
-) (chapters/06_conclusion.tex [12]
+[6
+
+]) (chapters/new_06_interface_utilisateur.tex [7]
 Chapitre 6.
-[13
+[8
 
-]) (chapters/07_appendix.tex [14]
+]) (chapters/new_07_ameliorations_futures.tex [9]
+Chapitre 7.
+) (chapters/new_08_conclusion.tex [10
+
+]
+Chapitre 8.
+) (chapters/08_glossary.tex [11
+
+]
 Annexe A.
-[15
-
-]) (chapters/08_glossary.tex [16]
-Annexe B.
 
 Overfull \hbox (23.99998pt too wide) in alignment at lines 4--8
  [] [] 
@@ -737,28 +723,28 @@ Overfull \hbox (23.99998pt too wide) in alignment at lines 14--83
  [] [] 
  []
 
-[17
+[12
 
-]) [18] (report.aux)
+]) [13] (report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 8CBAF009CEEFCDD75A7EC9BF36B504B2;8072.
+(rerunfilecheck)             Checksum: B2CCF79524E12975434E56DC03962034;5754.
  ) 
 Here is how much of TeX's memory you used:
- 18491 strings out of 474486
- 294023 string characters out of 5754541
- 2272542 words of memory out of 5000000
- 40317 multiletter control sequences out of 15000+600000
- 576934 words of font info for 82 fonts, out of 8000000 for 9000
+ 17828 strings out of 474486
+ 287771 string characters out of 5754541
+ 1954542 words of memory out of 5000000
+ 39762 multiletter control sequences out of 15000+600000
+ 576082 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 79i,12n,96p,879b,2225s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1200.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk>
-Output written on report.pdf (19 pages, 271492 bytes).
+ 79i,11n,93p,756b,688s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecit1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1200.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk>
+Output written on report.pdf (14 pages, 234089 bytes).
 PDF statistics:
- 977 PDF objects out of 1000 (max. 8388607)
- 166 named destinations out of 1000 (max. 500000)
- 353 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 783 PDF objects out of 1000 (max. 8388607)
+ 63 named destinations out of 1000 (max. 500000)
+ 265 words of extra memory for PDF output out of 10000 (max. 10000000)
 

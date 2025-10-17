@@ -1,0 +1,53 @@
+\chapter{Analyse Fonctionnelle des Cas d’Utilisation}
+\label{chap:analyse_fonctionnelle}
+
+\section{Diagramme de Classes}
+Le diagramme de classes ci-dessous modélise les principales entités du système et leurs relations. Il illustre la structure de l'application, depuis l'interface utilisateur jusqu'au modèle de prédiction.
+
+\begin{figure}[H]
+    \centering
+    % Placeholder for Class Diagram
+    \fbox{\parbox[c][10cm][c]{15cm}{\centering \Large Diagramme de Classes \\ (à insérer ici)}}
+    \caption{Diagramme de classes du système.}
+    \label{fig:class_diagram}
+\end{figure}
+
+\textit{Description du diagramme (à compléter avec le diagramme réel) : Le diagramme montre une classe \texttt{StreamlitApp} qui gère l'interface utilisateur. Cette classe est composée de deux pages principales : \texttt{GlobalAnalyticsPage} et \texttt{CustomerDiagnosisPage}. La page de diagnostic interagit avec un \texttt{ChurnPredictor}, qui lui-même encapsule le \texttt{CatBoostModel} et un \texttt{ShapExplainer}. Les données sont représentées par la classe \texttt{CustomerData}.}
+
+\section{Cas d’Utilisation}
+Les cas d'utilisation décrivent les interactions entre les acteurs (utilisateurs) et le système pour atteindre un objectif spécifique.
+
+\subsection{UC-01 : Analyser le Churn Global}
+\begin{itemize}
+    \item \textbf{Acteur} : Analyste Métier, Manager Marketing.
+    \item \textbf{Description} : L'utilisateur souhaite avoir une vue d'ensemble des tendances de churn au sein de l'entreprise.
+    \item \textbf{Scénario Nominal} :
+    \begin{enumerate}
+        \item L'utilisateur accède à la page "Global Analytics Dashboard".
+        \item Le système affiche les KPIs par défaut et les graphiques pour l'ensemble de la base de clients.
+        \item L'utilisateur applique un filtre (par exemple, "Contrat = Mois par mois").
+        \item Le système met à jour instantanément tous les KPIs et graphiques pour ne refléter que les clients correspondant au filtre.
+        \item L'utilisateur analyse les visualisations pour identifier des tendances (par exemple, "le taux de churn est de 45\% pour les contrats mensuels").
+    \end{enumerate}
+\end{itemize}
+
+\subsection{UC-02 : Diagnostiquer un Client Spécifique}
+\begin{itemize}
+    \item \textbf{Acteur} : Agent du Service Client, Responsable de Compte.
+    \item \textbf{Description} : L'utilisateur a besoin de comprendre le risque de churn pour un client particulier et les raisons de ce risque.
+    \item \textbf{Scénario Nominal} :
+    \begin{enumerate}
+        \item L'utilisateur navigue vers la page "Customer Diagnosis".
+        \item Il sélectionne un ID client dans le menu déroulant.
+        \item Le système :
+        \begin{itemize}
+            \item Récupère les données du client.
+            \item Fait une prédiction de churn en utilisant le modèle CatBoost.
+            \item Affiche la probabilité de churn sous forme de jauge.
+            \item Calcule les valeurs SHAP pour cette prédiction.
+            \item Affiche le graphique "force plot" SHAP, détaillant les facteurs de risque et de rétention.
+        \end{itemize}
+        \item L'utilisateur analyse le graphique et identifie que le client est à risque à cause de ses frais mensuels élevés.
+        \item L'utilisateur peut alors engager une action ciblée (par exemple, contacter le client pour lui proposer une offre promotionnelle).
+    \end{enumerate}
+\end{itemize}

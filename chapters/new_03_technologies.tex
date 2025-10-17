@@ -1,0 +1,37 @@
+\chapter{Technologies Utilisées}
+\label{chap:technologies}
+
+\section{Frontend}
+Le frontend de l'application est entièrement construit avec Streamlit, un framework Python qui simplifie la création d'interfaces web pour la data science.
+
+\subsection{Technologies Principales}
+\begin{itemize}
+    \item \textbf{Streamlit} : Utilisé comme framework principal pour construire l'ensemble de l'interface utilisateur, gérer l'état de l'application et connecter le frontend au backend Python.
+\end{itemize}
+
+\subsection{Bibliothèques UI et Utilitaires}
+\begin{itemize}
+    \item \textbf{HTML/CSS Personnalisé} : Du code CSS est injecté directement dans l'application Streamlit pour personnaliser le style (couleurs, polices, mise en page) et obtenir un design moderne de type "Power BI".
+    \item \textbf{Plotly} : Bien que Streamlit ait ses propres fonctions de graphiques, Plotly est utilisé pour créer des visualisations plus complexes et interactives.
+    \item \textbf{Streamlit-SHAP} : Une bibliothèque qui intègre de manière transparente les graphiques SHAP dans les applications Streamlit.
+\end{itemize}
+
+\section{Backend}
+Le backend est responsable du traitement des données, de l'entraînement du modèle, et du calcul des prédictions et des explications.
+
+\subsection{Core Technologies}
+\begin{itemize}
+    \item \textbf{Python} : Le langage de programmation principal pour toute la logique backend.
+    \item \textbf{Pandas} : Utilisé pour la manipulation et le prétraitement des données.
+    \item \textbf{Scikit-learn} : Utilisé pour les tâches de prétraitement comme la division des données et la mise à l'échelle des caractéristiques.
+    \item \textbf{CatBoost} : La bibliothèque contenant l'implémentation du modèle de gradient boosting utilisé pour la prédiction.
+    \item \textbf{SHAP} : Utilisé pour calculer les valeurs SHAP qui expliquent les prédictions du modèle.
+    \item \textbf{Joblib} : Utilisé pour sauvegarder et charger le modèle CatBoost entraîné.
+\end{itemize}
+
+\subsection{Caractéristiques Principales}
+\begin{itemize}
+    \item \textbf{Chargement de Modèle} : Le backend charge le modèle \texttt{catboost\_churn\_model.joblib} pré-entraîné au démarrage de l'application.
+    \item \textbf{API de Prédiction} : Bien qu'il ne s'agisse pas d'une API REST formelle, la structure du code permet d'appeler une fonction qui prend les données d'un client en entrée et retourne une prédiction de churn et une explication SHAP.
+    \item \textbf{Traitement des Données en Temps Réel} : Le backend applique les mêmes étapes de prétraitement (encodage, mise à l'échelle) aux données du client sélectionné avant de les passer au modèle.
+\end{itemize}
