@@ -20,7 +20,6 @@
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{imakeidx}
-\usepackage{minitoc}
 \usepackage{lipsum} % For dummy text
 
 % --- Page Layout ---
@@ -41,12 +40,6 @@
 \setlength{\headheight}{14pt}
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{2}
-\setcounter{minitocdepth}{2}
-\mtcsetdepth{chapter}{2}
-\mtcsetdepth{section}{2}
-\mtcsetdepth{subsection}{2}
-\dosecttoc
-\dosubsecttoc
 % --- Listings (Code) Style ---
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},   
@@ -132,12 +125,13 @@
     
 \end{titlepage}
 
+% --- Chapters ---
+\input{chapters/01_introduction.tex}
+
 % --- Table of Contents ---
 \tableofcontents
 \newpage
 
-% --- Chapters ---
-\input{chapters/01_introduction.tex}
 \input{chapters/02_data_exploration.tex}
 \input{chapters/03_modeling.tex}
 \input{chapters/04_xai.tex}
