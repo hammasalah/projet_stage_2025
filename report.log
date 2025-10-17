@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.15)  15 OCT 2025 02:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.15)  17 OCT 2025 15:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -540,7 +540,13 @@ Package minitoc Info: I0003
 \mtc@toks=\toks36
 \mtc@strutbox=\box110
 \mtc@hstrutbox=\box111
-Package minito (report.mtc0)
+Package minitoc Info: I0002
+(minitoc)             Autoconfiguration of extensions.
+\openout3 = `report.mtc0'.
+
+\openout3 = `report.mtc'.
+
+ (report.mtc0)
 Package minitoc Info: I0012
 (minitoc)             Long extensions (Unix-like) will be used.
 Package minitoc Info: I0031
@@ -558,19 +564,13 @@ Package minitoc Info: I0031
 Package minitoc Info: I0010
 (minitoc)             The english language is selected.
 (minitoc)              on input line 4910.
-
-(D:\prgrm_files\miktex\tex/latex/minitoc\english.mld
+ (D:\prgrm_files\miktex\tex/latex/minitoc\english.mld
 File: english.mld 2006/01/13
-)
-(D:\prgrm_files\miktex\tex/latex/minitoc\english.mld
+) (D:\prgrm_files\miktex\tex/latex/minitoc\english.mld
 File: english.mld 2006/01/13
-))
-(D:\prgrm_files\miktex\tex/latex/lipsum\lipsum.sty
-(D:\prgrm_files\miktex\tex/latex/l3packages/l3keys2e\l3keys2e.sty
-(D:\prgrm_files\miktex\tex/latex/l3kernel\expl3.sty
+)) (D:\prgrm_files\miktex\tex/latex/lipsum\lipsum.sty (D:\prgrm_files\miktex\tex/latex/l3packages/l3keys2e\l3keys2e.sty (D:\prgrm_files\miktex\tex/latex/l3kernel\expl3.sty
 Package: expl3 2024-01-04 L3 programming layer (loader) 
-
-(D:\prgrm_files\miktex\tex/latex/l3backend\l3backend-pdftex.def
+ (D:\prgrm_files\miktex\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count337
 \l__pdf_internal_box=\box112
@@ -581,18 +581,12 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \g__lipsum_par_int=\count338
 \l__lipsum_a_int=\count339
 \l__lipsum_b_int=\count340
+ (D:\prgrm_files\miktex\tex/latex/lipsum\lipsum.ltd.tex))
 
-(D:\prgrm_files\miktex\tex/latex/lipsum\lipsum.ltd.tex))
-
-! LaTeX Error: No counter 'secttocdepth' defined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.45 \setcounter{secttocdepth}{2}
-                                 
-? minitoc)                It should be a mini-table type 
+d:/all-projects/ML-PROJECTS/projet_stage_2025/report.tex:45: Package minitoc Error: E0009
+(minitoc)                \mtcsetdepth has a wrong first argument 
+(minitoc)                (chapter). 
+(minitoc)                It should be a mini-table type 
 (minitoc)                (parttoc...sectlot).
 
 See the minitoc package documentation for explanation.
@@ -948,9 +942,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  79i,12n,96p,879b,2225s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1200.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\moame\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk>
-Output written on report.pdf (17 pages, 278760 bytes).
+Output written on report.pdf (17 pages, 279121 bytes).
 PDF statistics:
- 924 PDF objects out of 1000 (max. 8388607)
+ 925 PDF objects out of 1000 (max. 8388607)
  162 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
